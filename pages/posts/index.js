@@ -10,7 +10,7 @@ const PostsIndex = ({ posts }) => {
         {posts.map((post) => (
           <li key={post.slug} className="m-2 text-lg">
             <Link
-              href={`/posts/${post.category}/${post.slug}`}
+              href={post.category ? `/posts/${post.category}/${post.slug}` : `/posts/${post.slug}`}
               className="text-blue-500 hover:underline"
             >
               <span>{post.title}</span>
@@ -21,7 +21,6 @@ const PostsIndex = ({ posts }) => {
     </PostsIndexLayout>
   );
 };
-
 export async function getStaticProps() {
   const posts = await postMetadata();
 
