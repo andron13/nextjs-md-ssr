@@ -1,14 +1,13 @@
 import Image from 'next/image';
+import React from 'react';
 
 import { defaultLink } from './Link/myLink';
 
 import logo from '../public/assets/img/webpage/logo.png';
 
+import { LinkObj } from '../types';
 import { primaryLinks } from '../utils/constants';
 
-const logoLoader = ({ src, width, quality }) => {
-  return `${logo}=${quality || 75}`;
-};
 export const Navbar = () => {
   return (
     <nav className="pt-2">
@@ -17,7 +16,7 @@ export const Navbar = () => {
           <Image src={logo} alt="Logo" height={30} />
         </div>
         <div className="space-x-6">
-          {primaryLinks.map((link) => defaultLink(link.path, link.title))}
+          {primaryLinks.map((link: LinkObj) => defaultLink(link.path, link.title))}
         </div>
       </div>
     </nav>

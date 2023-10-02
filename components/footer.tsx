@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import React from 'react';
 
+import { LinkObj } from '../types';
 import { primaryLinks, secondaryLinks, thirdLinks } from '../utils/constants';
 
 // Компонент для ссылки с необходимыми стилями
-const CustomLink = ({ href, children }) => (
+const CustomLink = ({ href, children }: { href: string; children: string }) => (
   <Link href={href} className="text-white hover:text-blue-500 px-2 md:px-0">
     {children}
   </Link>
@@ -19,7 +21,7 @@ const Footer = () => {
             <div className="md:flex md:flex-col">
               <h3 className="text-2xl font-bold mb-2">Компания</h3>
               <ul className="space-y-2">
-                {primaryLinks.map((link) => (
+                {primaryLinks.map((link: LinkObj) => (
                   <li key={link.title}>
                     <CustomLink href={link.path}>{link.title}</CustomLink>
                   </li>
@@ -29,7 +31,7 @@ const Footer = () => {
             <div className="md:text-center md:flex md:flex-col">
               <h3 className="text-2xl font-bold mb-2">Продукты</h3>
               <ul className="space-y-2">
-                {secondaryLinks.map((link) => (
+                {secondaryLinks.map((link: LinkObj) => (
                   <li key={link.title}>
                     <CustomLink href={link.path}>{link.title}</CustomLink>
                   </li>
@@ -39,7 +41,7 @@ const Footer = () => {
             <div className="md:text-right md:flex md:flex-col">
               <h3 className="text-2xl font-bold mb-2">Поддержка</h3>
               <ul className="space-y-2">
-                {thirdLinks.map((link) => (
+                {thirdLinks.map((link: LinkObj) => (
                   <li key={link.title}>
                     <CustomLink href={link.path}>{link.title}</CustomLink>
                   </li>

@@ -3,7 +3,7 @@
 import Head from 'next/head';
 
 import { webSiteSlogan, webSiteTitle } from '../../utils/constants/webSiteVars';
-import { Navbar } from '../navBar';
+import { Navbar } from '../navBar.tsx';
 
 const HomeLayout = ({ children }) => {
   return (
