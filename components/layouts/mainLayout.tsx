@@ -1,11 +1,16 @@
 //components/mainLayout.js
-
 import Head from 'next/head';
+import React from 'react';
 
-import Aside from '../aside';
 import Footer from '../footer';
 
-const MainLayout = ({ pageTitle, children }) => {
+const MainLayout = ({
+  pageTitle,
+  children,
+}: {
+  pageTitle: string;
+  children: React.ReactElement;
+}) => {
   return (
     <>
       <Head>

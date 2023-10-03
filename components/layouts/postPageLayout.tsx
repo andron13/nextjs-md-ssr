@@ -1,15 +1,22 @@
 import Head from 'next/head';
+import React from 'react';
 
+import { MetadatObj } from '../../types';
 import { webSiteTitle } from '../../utils/constants/webSiteVars';
 import { DateFormatter } from '../../utils/dateFormatter';
 import AdvertisementPlaceholder from '../advertising/placeholder';
-import Aside from '../aside';
 import UserImg from '../author/userImg';
 import UserName from '../author/userName';
 import { Navbar } from '../navBar';
 import Breadcrumb from '../seo/breadcrumb';
 
-const PostPageLayout = ({ postMetadata, children }) => {
+const PostPageLayout = ({
+  postMetadata,
+  children,
+}: {
+  postMetadata: MetadatObj;
+  children: React.ReactElement;
+}) => {
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Posts', href: '/posts' },

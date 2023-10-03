@@ -1,11 +1,11 @@
 // components/HomeLayout.js
-
 import Head from 'next/head';
+import React from 'react';
 
 import { webSiteSlogan, webSiteTitle } from '../../utils/constants/webSiteVars';
-import { Navbar } from '../navBar.tsx';
+import { Navbar } from '../navBar';
 
-const HomeLayout = ({ children }) => {
+const HomeLayout = ({ children }: { children: React.ReactElement }) => {
   return (
     <>
       <Head>

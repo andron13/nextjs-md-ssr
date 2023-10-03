@@ -1,9 +1,11 @@
 // components/postsIndexLayout.js
-import { webSiteSlogan, webSiteTitle } from '../../utils/constants/webSiteVars';
+import React from 'react';
+
+import { webSiteTitle } from '../../utils/constants/webSiteVars';
 import Aside from '../aside';
 import { Navbar } from '../navBar';
 
-const PostsIndexLayout = ({ children }) => {
+const PostsIndexLayout = ({ children }: { children: React.ReactElement }) => {
   return (
     <>
       <header className="bg-gradient-to-r from-teal-100 via-blue-100 to-indigo-100 py-2 shadow-md rounded-md">
