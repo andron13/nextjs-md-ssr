@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-function getAllFilesRecursively(dir, fileList = []) {
+function getAllFilesRecursively(dir: string, fileList = []) {
   const files = fs.readdirSync(dir);
 
   files.forEach((file) => {

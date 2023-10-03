@@ -20,7 +20,7 @@ type Overrides = {
   [customComponent: string]: Override;
 };
 
-export const MdToHtml = ({ mdSource }) => {
+export const MdToHtml = ({ mdSource }: { mdSource: string }) => {
   const overrides: Overrides = {
     h1: { component: 'h1', props: { className: 'text-4xl font-bold my-4' } },
     h2: { component: 'h2', props: { className: 'text-2xl font-bold my-4' } },

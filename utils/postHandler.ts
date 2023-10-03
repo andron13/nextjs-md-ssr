@@ -8,7 +8,7 @@ export async function getAllPostsData() {
     return { content: matterResult.content, ...postMetadata };
   });
 }
-export const getPostData = async (slug) => {
+export const getPostData = async (slug: string) => {
   const matchingPosts = await processFiles(POSTS_FOLDER, (matterResult, filepath) => {
     const postMetadata = parseMetadata(matterResult, filepath);
     if (postMetadata.slug === slug) {

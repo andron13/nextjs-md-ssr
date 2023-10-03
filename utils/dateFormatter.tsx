@@ -1,8 +1,15 @@
 import { parseISO, format } from 'date-fns';
 import { ru, de, enUS } from 'date-fns/locale';
+import React from 'react';
 
-export const DateFormatter = ({ dateString = new Date(), locale = 'de' }) => {
-  const date = parseISO(dateString);
+export const DateFormatter = ({
+  dateString = new Date(),
+  locale = 'de',
+}: {
+  dateString: Date | string;
+  locale?: string;
+}) => {
+  const date = parseISO(dateString.toString());
 
   const localesMap = {
     ru: ru,
@@ -16,7 +23,7 @@ export const DateFormatter = ({ dateString = new Date(), locale = 'de' }) => {
   const timeCode = format(date, 'LLLL d, yyyy', { locale: chosenLocale });
 
   return (
-    <time dateTime={dateString} aria-label={ariaLabel}>
+    <time dateTime={dateString.toString()} aria-label={ariaLabel}>
       {timeCode}
     </time>
   );
