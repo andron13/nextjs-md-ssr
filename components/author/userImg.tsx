@@ -1,6 +1,6 @@
 // Created on 27.07.23 by 16:07:
-
 import Image from 'next/image';
+import React from 'react';
 
 import logo from '../../public/assets/img/webpage/logo.png';
 

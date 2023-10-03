@@ -1,4 +1,5 @@
 // Created on 26.07.23 by 15:36:
+import React from 'react';
 
 import TestContent from '../../utils/constants/testContent';
 
