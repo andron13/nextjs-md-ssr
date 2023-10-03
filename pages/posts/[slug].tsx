@@ -1,10 +1,15 @@
+import React from 'react';
+
 import Aside from '../../components/aside';
 import PostPageLayout from '../../components/layouts/postPageLayout';
 import { MdToHtml } from '../../components/markdown';
+import { MetadatObj } from '../../types';
 import { getPostData } from '../../utils/postHandler';
 import { getAllPostSlugs } from '../../utils/postMetadata';
 
-const PostPage = ({ postMetadata, content }) => {
+type PostPageProps = { postMetadata: MetadatObj; content: string };
+
+const PostPage = ({ postMetadata, content }: PostPageProps) => {
   return (
     <PostPageLayout postMetadata={postMetadata}>
       <header></header>
@@ -19,7 +24,7 @@ const PostPage = ({ postMetadata, content }) => {
 };
 
 export async function getStaticPaths() {
-  const postSlugs = await getAllPostSlugs();
+  const postSlugs: { slug: string }[] = await getAllPostSlugs();
 
   const paths = postSlugs.map(({ slug }) => ({
     // Извлекаем slug из каждого объекта
@@ -29,9 +34,9 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   try {
-    const { content, postMetadata } = await getPostData(params.slug);
+    const { content, postMetadata }: PostPageProps = await getPostData(params.slug);
     return { props: { content, postMetadata } };
   } catch (error) {
     return { notFound: true };

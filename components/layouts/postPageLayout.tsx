@@ -15,7 +15,7 @@ const PostPageLayout = ({
   children,
 }: {
   postMetadata: MetadatObj;
-  children: React.ReactElement;
+  children: React.ReactElement[];
 }) => {
   const breadcrumbs = [
     { label: 'Home', href: '/' },

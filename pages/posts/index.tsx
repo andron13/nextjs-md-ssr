@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import React from 'react';
 
 import PostsIndexLayout from '../../components/layouts/postsIndexLayout';
+import { MetadatObj } from '../../types';
 import postMetadata from '../../utils/postMetadata';
 
-const PostsIndex = ({ posts }) => {
+const PostsIndex = ({ posts }: { posts: MetadatObj[] }) => {
   return (
     <PostsIndexLayout>
       <ol className="mb-2 list-decimal ml-6">
