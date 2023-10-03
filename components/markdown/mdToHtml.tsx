@@ -1,7 +1,27 @@
 import Markdown from 'markdown-to-jsx';
+import React from 'react';
+
+type HTMLTags = keyof JSX.IntrinsicElements;
+type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
+  {
+    [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>;
+  }[Keys];
+
+type Override =
+  | RequireAtLeastOne<{
+      component: React.ElementType;
+      props: object;
+    }>
+  | React.ElementType;
+
+type Overrides = {
+  [tag in HTMLTags]?: Override;
+} & {
+  [customComponent: string]: Override;
+};
 
 export const MdToHtml = ({ mdSource }) => {
-  const overrides = {
+  const overrides: Overrides = {
     h1: { component: 'h1', props: { className: 'text-4xl font-bold my-4' } },
     h2: { component: 'h2', props: { className: 'text-2xl font-bold my-4' } },
     h3: { component: 'h3', props: { className: 'text-lg font-bold my-2' } },

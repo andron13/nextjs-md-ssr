@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import React from 'react';
 
-const Breadcrumb = ({ breadcrumbs }) => {
+import { BreadcrumbObj } from '../../types';
+
+const Breadcrumb = ({ breadcrumbs }: { breadcrumbs: BreadcrumbObj[] }) => {
   return (
     <nav className="text-gray-500 text-sm my-1 px-2" aria-label="breadcrumb">
       <div className="flex items-center space-x-2">
