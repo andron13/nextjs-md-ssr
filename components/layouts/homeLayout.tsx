@@ -1,11 +1,12 @@
-// components/HomeLayout.js
 import Head from 'next/head';
 import React from 'react';
 
-import { webSiteSlogan, webSiteTitle } from '../../utils/constants/webSiteVars';
-import { Navbar } from '../navBar';
+import { webSiteSlogan, webSiteTitle } from '../../constants/webSiteVars';
+import Navbar from '../navBar';
 
-const HomeLayout = ({ children }: { children: React.ReactElement[] }) => {
+type propsType = { children: React.ReactElement[] };
+
+const HomeLayout = ({ children }: propsType) => {
   return (
     <>
       <Head>

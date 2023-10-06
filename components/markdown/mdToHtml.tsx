@@ -20,7 +20,9 @@ type Overrides = {
   [customComponent: string]: Override;
 };
 
-export const MdToHtml = ({ mdSource }: { mdSource: string }) => {
+type propsType = { mdSource: string };
+
+export const MdToHtml = ({ mdSource }: propsType) => {
   const overrides: Overrides = {
     h1: { component: 'h1', props: { className: 'text-4xl font-bold my-4' } },
     h2: { component: 'h2', props: { className: 'text-2xl font-bold my-4' } },
@@ -59,10 +61,7 @@ export const MdToHtml = ({ mdSource }: { mdSource: string }) => {
       props: { className: 'text-sm text-gray-500 mt-2' },
     },
   };
-
-  return (
-    <article className="bg-white shadow-md rounded-md text-gray-800 my-1 p-2">
-      <Markdown options={{ overrides }}>{mdSource}</Markdown>
-    </article>
-  );
+  return <Markdown options={{ overrides }}>{mdSource}</Markdown>;
 };
+
+export default MdToHtml;

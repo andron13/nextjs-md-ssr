@@ -12,8 +12,11 @@ function parseMetadata(matterResult: matter.GrayMatterFile<string>, filepath: st
       matterResult.data.date instanceof Date
         ? matterResult.data.date.toISOString()
         : new Date().toISOString(),
-    author: matterResult.data.author,
+    author: matterResult.data.author || 'admin',
+    language: matterResult.data.language || 'en',
     category: matterResult.data.category || '',
+    taxonomy: matterResult.data.tags || '',
+    ingredients: matterResult.data.ingredients || '',
     weight: matterResult.data.weight || 100,
     slug: matterResult.data.slug || path.basename(filepath).replace('.md', ''),
   };

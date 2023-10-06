@@ -3,12 +3,11 @@ import React from 'react';
 
 import { defaultLink } from './Link/myLink';
 
+import { primaryLinks } from '../constants';
 import logo from '../public/assets/img/webpage/logo.png';
-
 import { LinkObj } from '../types';
-import { primaryLinks } from '../utils/constants';
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <nav className="pt-2">
       <div className="mx-auto px-2 flex justify-between items-center">
@@ -22,3 +21,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;

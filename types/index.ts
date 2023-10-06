@@ -16,4 +16,7 @@ export type MetadatObj = {
   category: string;
   weight: string;
   slug: string;
+  language: string;
+  taxonomy: string;
+  ingredients: string;
 };

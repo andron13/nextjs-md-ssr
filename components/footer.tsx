@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
 
+import { primaryLinks, secondaryLinks, thirdLinks } from '../constants';
 import { LinkObj } from '../types';
-import { primaryLinks, secondaryLinks, thirdLinks } from '../utils/constants';
+
+type propsType = { href: string; children: string };
 
 // Компонент для ссылки с необходимыми стилями
-const CustomLink = ({ href, children }: { href: string; children: string }) => (
+const CustomLink = ({ href, children }: propsType) => (
   <Link href={href} className="text-white hover:text-blue-500 px-2 md:px-0">
     {children}
   </Link>

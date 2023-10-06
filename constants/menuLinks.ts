@@ -1,5 +1,5 @@
 // Created on 25.07.23 by 08:48:
-import { LinkObj } from '../../types';
+import { LinkObj } from '../types';
 
 export const primaryLinks: LinkObj[] = [
   { title: 'Главная', path: '/' },

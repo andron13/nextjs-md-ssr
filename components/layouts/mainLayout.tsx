@@ -1,16 +1,15 @@
-//components/mainLayout.js
 import Head from 'next/head';
 import React from 'react';
 
 import Footer from '../footer';
+import SeoScripts from '../seo/seoScripts';
 
-const MainLayout = ({
-  pageTitle,
-  children,
-}: {
+type propsType = {
   pageTitle: string;
   children: React.ReactElement;
-}) => {
+};
+
+const MainLayout = ({ pageTitle, children }: propsType) => {
   return (
     <>
       <Head>
@@ -20,6 +19,7 @@ const MainLayout = ({
       <section className="flex flex-col min-h-screen max-w-5xl mx-auto">
         {children}
         <Footer />
+        <SeoScripts />
       </section>
     </>
   );
