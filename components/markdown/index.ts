@@ -1,2 +1,3 @@
-import MdToHtml from './mdToHtml';
-export default MdToHtml;
+import { MdToHtml } from './mdToHtml';
+
+export { MdToHtml };
