@@ -4,7 +4,7 @@ import React from 'react';
 import { defaultLink } from './Link/myLink';
 
 import { primaryLinks } from '../constants';
-import logo from '../public/assets/img/webpage/logo.png';
+import logo from '../public/assets/icons/logo.svg';
 import { LinkObj } from '../types';
 
 const Navbar = () => {

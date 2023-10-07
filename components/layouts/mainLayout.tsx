@@ -1,24 +1,27 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import React from 'react';
 
-import Footer from '../footer';
+import Logo from '../logo/logo';
+import SearchInput from '../searchInput/searchInput';
 import SeoScripts from '../seo/seoScripts';
 
 type propsType = {
-  pageTitle: string;
   children: React.ReactElement;
 };
 
-const MainLayout = ({ pageTitle, children }: propsType) => {
+const MainLayout = ({ children }: propsType) => {
   return (
     <>
       <Head>
-        <title>{pageTitle}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="flex flex-col min-h-screen max-w-5xl mx-auto">
+      <header className="w-full relative">
+        <Logo />
+        <SearchInput />
+      </header>
+      <section className="">
         {children}
-        <Footer />
         <SeoScripts />
       </section>
     </>

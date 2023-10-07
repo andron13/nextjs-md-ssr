@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import logo from '../../public/assets/img/webpage/logo.png';
+import logo from '../../public/assets/icons/logo.svg';
 
 const UserImg = ({ userName = 'admin' }) => {
   const user = {
