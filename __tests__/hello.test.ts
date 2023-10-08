@@ -1,3 +1,5 @@
-export default function myTest() {
-  return 'Here will be test';
-}
+describe('test', () => {
+  it('should test', () => {
+    expect('test').toBe('test');
+  });
+});
