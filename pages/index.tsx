@@ -1,6 +1,7 @@
 import React from 'react';
 
 import HomeLayout from '../components/layouts/homeLayout';
+import Slider from '../components/slider/Slider';
 import { getAllPostsData } from '../service/postHandler';
 
 export async function getStaticProps() {
@@ -27,14 +28,10 @@ const Block = ({
   </div>
 );
 
-const Image = ({ src, alt }: { src: string; alt: string }) => (
-  <img src={src} alt={alt} className="w-full h-auto rounded-lg" />
-);
-
 const Index = ({ allPostsData }) => {
   return (
     <HomeLayout>
-      <div>Here will be some content soon!</div>
+      <Slider />
       <div>And some more to please the compiler</div>
     </HomeLayout>
   );

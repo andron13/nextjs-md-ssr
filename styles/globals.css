@@ -68,3 +68,17 @@ section {
 .list-decimal {
     list-style-type: decimal;
 }
+
+.swiper-button-disabled:disabled {
+    transition: all 0.3s;
+    background-color: #EFEFEF;
+    border-radius: 50%;
+}
+
+.swiper-pagination-bullet {
+    transition: all 0.3s;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #DD4C12;
+    transform: scale(1.2);
+}

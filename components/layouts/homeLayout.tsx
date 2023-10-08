@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 
-import { webSiteSlogan, webSiteTitle } from '../../constants/webSiteVars';
-import Navbar from '../navBar';
+import { webSiteTitle } from '../../constants/webSiteVars';
 
 type propsType = { children: React.ReactElement[] };
 
