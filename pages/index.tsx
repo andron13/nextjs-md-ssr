@@ -1,6 +1,7 @@
 import React from 'react';
 
 import HomeLayout from '../components/layouts/homeLayout';
+import RecepiesSelector from '../components/recepiesSelector/RecepiesSelector';
 import Slider from '../components/slider/Slider';
 import { getAllPostsData } from '../service/postHandler';
 
@@ -32,7 +33,8 @@ const Index = ({ allPostsData }) => {
   return (
     <HomeLayout>
       <Slider />
-      <div>And some more to please the compiler</div>
+      <RecepiesSelector />
+      <div>Recepies block</div>
     </HomeLayout>
   );
 };

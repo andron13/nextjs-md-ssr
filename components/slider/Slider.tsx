@@ -29,6 +29,7 @@ export default function Slider() {
           modifierClass: 'myPag-',
         }}
         scrollbar={{ draggable: true }}
+        className="max-w-[500px]"
       >
         <SwiperSlide>
           <Image src={first} alt="" style={{ borderRadius: '35px' }} />

@@ -69,6 +69,12 @@ section {
     list-style-type: decimal;
 }
 
+.swiper-slide {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
 .swiper-button-disabled:disabled {
     transition: all 0.3s;
     background-color: #EFEFEF;
@@ -81,4 +87,8 @@ section {
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: #DD4C12;
     transform: scale(1.2);
+}
+
+.myRecepBtn:hover .myRecepIcon {
+    fill: hsl(24, 90%, 61%);
 }

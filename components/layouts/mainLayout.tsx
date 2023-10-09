@@ -15,11 +15,11 @@ const MainLayout = ({ children }: propsType) => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="w-full relative">
+      <header className="w-full relative 2xl:container mx-auto">
         <Logo />
         <SearchInput />
       </header>
-      <section className="">
+      <section className="w-full 2xl:container mx-auto">
         {children}
         <SeoScripts />
       </section>
