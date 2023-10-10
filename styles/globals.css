@@ -89,3 +89,35 @@ section {
     fill: hsl(24, 90%, 61%);
 }
 
+.mySlide {
+    border-radius: 35px;
+    object-fit: cover;
+    max-height: 340px;
+}
+
+.recipeImg {
+    border-radius: 20px;
+    height: 180px;
+    object-fit: cover;
+}
+
+@media (min-width: 420px) {
+    .mySlide {
+        max-height: 450px;
+    }
+    .recipeImg {
+        height: 250px;
+    }
+}
+
+@media (min-width: 550px) {
+    .mySlide {
+        max-height: 625px;
+    }
+}
+
+@media (min-width: 640px) {
+    .recipeImg {
+        height: 180px;
+    }
+}

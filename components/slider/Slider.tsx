@@ -32,25 +32,13 @@ export default function Slider() {
         className="max-w-[500px] rounded-[35px]"
       >
         <SwiperSlide>
-          <Image
-            src={first}
-            alt=""
-            style={{ borderRadius: '35px', objectFit: 'cover', maxHeight: '625px' }}
-          />
+          <Image src={first} className="mySlide" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            src={second}
-            alt=""
-            style={{ borderRadius: '35px', objectFit: 'cover', maxHeight: '625px' }}
-          />
+          <Image src={second} className="mySlide" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            src={third}
-            alt=""
-            style={{ borderRadius: '35px', objectFit: 'cover', maxHeight: '625px' }}
-          />
+          <Image src={third} className="mySlide" alt="" />
         </SwiperSlide>
         <div className="flex w-full justify-center gap-5 mt-10">
           <button className="myPrev p-2 cursor-pointer">
