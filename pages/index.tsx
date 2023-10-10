@@ -34,7 +34,7 @@ const Index = ({ allPostsData }) => {
     <HomeLayout>
       <Slider />
       <RecepiesSelector />
-      <div>Recepies block</div>
+      <div className="mt-8">Recepies block</div>
     </HomeLayout>
   );
 };

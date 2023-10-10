@@ -29,16 +29,28 @@ export default function Slider() {
           modifierClass: 'myPag-',
         }}
         scrollbar={{ draggable: true }}
-        className="max-w-[500px]"
+        className="max-w-[500px] rounded-[35px]"
       >
         <SwiperSlide>
-          <Image src={first} alt="" style={{ borderRadius: '35px' }} />
+          <Image
+            src={first}
+            alt=""
+            style={{ borderRadius: '35px', objectFit: 'cover', maxHeight: '625px' }}
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={second} alt="" style={{ borderRadius: '35px' }} />
+          <Image
+            src={second}
+            alt=""
+            style={{ borderRadius: '35px', objectFit: 'cover', maxHeight: '625px' }}
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={third} alt="" style={{ borderRadius: '35px' }} />
+          <Image
+            src={third}
+            alt=""
+            style={{ borderRadius: '35px', objectFit: 'cover', maxHeight: '625px' }}
+          />
         </SwiperSlide>
         <div className="flex w-full justify-center gap-5 mt-10">
           <button className="myPrev p-2 cursor-pointer">
