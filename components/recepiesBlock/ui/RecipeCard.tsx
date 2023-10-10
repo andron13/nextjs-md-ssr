@@ -16,7 +16,7 @@ type propsType = {
 export default function RecipeCard(props: propsType) {
   const { img, title, category, cookTime, calories } = props.recipe;
   return (
-    <div className="sm:w-[220px]">
+    <div className="sm:w-[220px] hover:scale-[1.02] cursor-pointer transition-all duration-300">
       <div className="relative z-10">
         <Image src={img} alt="" className="recipeImg" />
         <div className="absolute left-[16px] bottom-[30px] flex px-2 gap-1 text-[10px] font-[500] bg-primary-50 rounded-lg">
