@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { categories } from './categories';
 import CategoryItem from './CategoryItem';
 

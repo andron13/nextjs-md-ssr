@@ -1,5 +1,3 @@
-import React from 'react';
-
 import HomeLayout from '../components/layouts/homeLayout';
 import RecepiesBlock from '../components/recepiesBlock/RecipesBlock';
 import RecepiesSelector from '../components/recepiesSelector/RecepiesSelector';
@@ -15,7 +13,7 @@ export async function getStaticProps() {
   };
 }
 
-const Index = ({ allPostsData }) => {
+const Index = () => {
   return (
     <HomeLayout>
       <Slider />

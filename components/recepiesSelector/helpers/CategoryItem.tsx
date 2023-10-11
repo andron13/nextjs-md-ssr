@@ -1,5 +1,3 @@
-import React from 'react';
-
 type propsType = {
   Elem: ({ color }: { color: string }) => React.JSX.Element;
   title: string;

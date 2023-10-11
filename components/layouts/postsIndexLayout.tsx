@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { webSiteTitle } from '../../constants/webSiteVars';
 import Aside from '../aside';
 import Navbar from '../navBar';

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import getCategoriesList from './helpers/getCategoriesList';
 import filterIcon from '../../public/assets/icons/Filters.svg';

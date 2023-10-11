@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import React from 'react';
 
 import { webSiteTitle } from '../../constants/webSiteVars';
 import { DateFormatter } from '../../service/dateFormatter';

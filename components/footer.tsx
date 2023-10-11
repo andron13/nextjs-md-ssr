@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 
 import { primaryLinks, secondaryLinks, thirdLinks } from '../constants';
 import { LinkObj } from '../types';

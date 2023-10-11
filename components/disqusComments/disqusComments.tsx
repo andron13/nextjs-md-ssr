@@ -1,5 +1,4 @@
 import { DiscussionEmbed } from 'disqus-react';
-import React from 'react';
 
 import { domainName } from '../../constants/webSiteVars';
 import { MetadatObj } from '../../types';

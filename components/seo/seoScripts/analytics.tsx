@@ -1,6 +1,4 @@
 import Script from 'next/script';
-import React from 'react';
-
 const Analytics = () => {
   const GOOGLE_ANALYTICS_ID = '';
   // 'UA-XXXXX-Y' Замените на ваш идентификатор отслеживания

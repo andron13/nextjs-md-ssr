@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import React from 'react';
 
 import Logo from '../logo/logo';
 import SearchInput from '../searchInput/searchInput';

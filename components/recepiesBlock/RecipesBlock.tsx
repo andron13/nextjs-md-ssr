@@ -1,5 +1,3 @@
-import React from 'react';
-
 import RecipeCard from './ui/RecipeCard';
 import firstPic from '../../public/assets/img/food_1.jpg';
 import secondPic from '../../public/assets/img/food_2.jpg';
