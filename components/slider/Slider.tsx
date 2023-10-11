@@ -17,7 +17,7 @@ import third from '../../public/assets/img/food_3.jpg';
 
 export default function Slider() {
   return (
-    <div className="mt-10">
+    <div>
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={50}
@@ -29,7 +29,7 @@ export default function Slider() {
           modifierClass: 'myPag-',
         }}
         scrollbar={{ draggable: true }}
-        className="max-w-[500px] rounded-[35px]"
+        className="max-w-[670px] rounded-[35px]"
       >
         <SwiperSlide>
           <Image src={first} className="mySlide" alt="" />

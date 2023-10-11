@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 
+import { webSiteTitle } from '../../constants/webSiteVars';
+
 import logoIcon from '../../public/assets/icons/logo.svg';
 
 export default function Logo() {
@@ -9,7 +11,7 @@ export default function Logo() {
       <div className="w-6 h-6 bg-black-950 rounded-full flex justify-center items-center">
         <Image src={logoIcon} alt="" width={12} />
       </div>
-      <div className="text-2xl font-bold">Pick-a-Meal</div>
+      <div className="text-2xl font-bold">{webSiteTitle}</div>
     </div>
   );
 }

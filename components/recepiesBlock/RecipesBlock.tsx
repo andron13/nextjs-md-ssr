@@ -27,6 +27,48 @@ const recipes = [
     cookTime: '90',
     calories: '780',
   },
+  {
+    img: firstPic,
+    title: 'Berry cheesecake',
+    category: 'Desserts',
+    cookTime: '45',
+    calories: '780',
+  },
+  {
+    img: secondPic,
+    title: 'Pizza neopolitano',
+    category: 'Dinners',
+    cookTime: '30',
+    calories: '1200',
+  },
+  {
+    img: thirdPic,
+    title: 'Shashlyk',
+    category: 'Dinners',
+    cookTime: '90',
+    calories: '780',
+  },
+  {
+    img: firstPic,
+    title: 'Berry cheesecake',
+    category: 'Desserts',
+    cookTime: '45',
+    calories: '780',
+  },
+  {
+    img: secondPic,
+    title: 'Pizza neopolitano',
+    category: 'Dinners',
+    cookTime: '30',
+    calories: '1200',
+  },
+  {
+    img: thirdPic,
+    title: 'Shashlyk',
+    category: 'Dinners',
+    cookTime: '90',
+    calories: '780',
+  },
 ];
 
 const items = recipes.map((recipe) => <RecipeCard recipe={recipe} key={recipe.title} />);

@@ -55,12 +55,6 @@ article {
     border-radius: 4px;
 }
 
-section {
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
 .list-decimal {
     list-style-type: decimal;
 }
@@ -71,10 +65,21 @@ section {
     justify-content: center;
 }
 
-.swiper-button-disabled:disabled {
+.myPrev, .myNext {
     transition: all 0.3s;
-    background-color: #EFEFEF;
     border-radius: 50%;
+}
+
+.myPrev:hover, .myNext:hover {
+    background-color: #EFEFEF;
+}
+
+.myPrev:hover .sliderArrow, .myNext:hover .sliderArrow {
+    fill: hsl(17, 85%, 47%);
+}
+
+.myPrev.swiper-button-disabled .sliderArrow, .myNext.swiper-button-disabled .sliderArrow {
+    fill: #989898;
 }
 
 .swiper-pagination-bullet {

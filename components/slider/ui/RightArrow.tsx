@@ -3,7 +3,7 @@ import React from 'react';
 export default function ArrowRight() {
   return (
     <svg
-      className="fill-primary-400 hover:fill-accent-600 transition-all duration-300"
+      className="sliderArrow fill-primary-400 transition-all duration-300"
       width="17"
       height="18"
       viewBox="0 0 17 18"

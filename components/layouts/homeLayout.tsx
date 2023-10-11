@@ -11,7 +11,7 @@ const HomeLayout = ({ children }: propsType) => {
       <Head>
         <title>{webSiteTitle}</title>
       </Head>
-      <main className="">{children}</main>
+      <main>{children}</main>
     </>
   );
 };
