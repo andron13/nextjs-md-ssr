@@ -21,7 +21,6 @@
     "strict": true,
     "noImplicitAny": false,
     "strictNullChecks": true
-    
   },
   "include": [
     "src",

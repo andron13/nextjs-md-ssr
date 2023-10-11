@@ -8,15 +8,15 @@ type propsType = {
 
 export default function CategoryItem({ Elem, title, catKey, activeCat, setActiveCat }: propsType) {
   const isActive = activeCat === catKey ? true : false;
+  const textColor = isActive ? 'text-accent-600' : 'text-primary-900';
+  const svgColor = isActive ? 'fill-accent-600' : 'fill-primary-900';
   return (
     <li>
       <button
-        className={`${
-          isActive ? 'text-accent-600' : 'text-primary-900'
-        } hover:text-accent-400 transition-all duration-200 myRecepBtn flex flex-col justify-center items-center whitespace-nowrap gap-4`}
+        className={`${textColor} hover:text-accent-400 transition-all duration-200 myRecepBtn flex flex-col justify-center items-center whitespace-nowrap gap-4`}
         onClick={() => setActiveCat(catKey)}
       >
-        <Elem color={isActive ? 'fill-accent-600' : 'fill-primary-900'} />
+        <Elem color={svgColor} />
         {title}
       </button>
     </li>

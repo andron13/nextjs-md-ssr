@@ -8,8 +8,8 @@ import { MetadatObj } from '../types';
 type test =
   | {
       [key: string]: string | Partial<MetadatObj>;
-    }[]
-  | undefined[];
+    }
+  | undefined;
 
 const processFiles = async (
   folder: string,
@@ -19,8 +19,7 @@ const processFiles = async (
   ) => { [key: string]: string | Partial<MetadatObj> } | undefined
 ) => {
   const filePaths = getAllFilesRecursively(folder);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const results: any[] = [];
+  const results: test[] = [];
 
   filePaths.forEach((filepath: string) => {
     const fileContents = fs.readFileSync(filepath, 'utf8');
