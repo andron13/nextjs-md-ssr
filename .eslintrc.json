@@ -10,7 +10,7 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks"],
+  "plugins": ["@typescript-eslint", "react", "import", "simple-import-sort", "prettier", "react-hooks"],
   "parserOptions": {
     "ecmaVersion": 13,
     "sourceType": "module",
@@ -66,6 +66,9 @@
     "react": {
       "pragma": "React",
       "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     }
   },
   "env": {

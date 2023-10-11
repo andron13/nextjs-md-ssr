@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { webSiteTitle } from '../../constants/webSiteVars';
 import { DateFormatter } from '../../service/dateFormatter';
-import { MetadatObj, BreadcrumbObj } from '../../types';
+import { BreadcrumbObj, MetadatObj } from '../../types';
 import AdvertisementPlaceholder from '../advertising/placeholder';
 import UserImg from '../author/userImg';
 import UserName from '../author/userName';

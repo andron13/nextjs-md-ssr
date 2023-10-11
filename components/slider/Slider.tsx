@@ -1,11 +1,12 @@
 'use client';
 
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css';
+
 import Image from 'next/image';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 import ArrowLeft from './ui/LeftArrow';
 import ArrowRight from './ui/RightArrow';
@@ -42,7 +43,7 @@ export default function Slider() {
           <button className="myPrev cursor-pointer p-2">
             <ArrowLeft />
           </button>
-          <div className="myPag flex items-center justify-around gap-[10px]"></div>
+          <div className="myPag flex items-center justify-around gap-[10px] "></div>
           <button className="myNext cursor-pointer p-2">
             <ArrowRight />
           </button>

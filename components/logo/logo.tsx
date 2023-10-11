@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 import { webSiteTitle } from '../../constants/webSiteVars';
-
 import logoIcon from '../../public/assets/icons/logo.svg';
 
 export default function Logo() {

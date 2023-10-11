@@ -1,5 +1,4 @@
 import path from 'path';
-
 import matter from 'gray-matter';
 
 import { MetadatObj } from '../types';

@@ -1,5 +1,5 @@
-import { parseISO, format } from 'date-fns';
-import { ru, de, enUS } from 'date-fns/locale';
+import { format, parseISO } from 'date-fns';
+import { de, enUS, ru } from 'date-fns/locale';
 import React from 'react';
 
 type propsType = {
