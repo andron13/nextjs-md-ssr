@@ -17,9 +17,9 @@ const PostPage = ({ postMetadata, content }: PostPageProps) => {
   return (
     <PostPageLayout postMetadata={postMetadata}>
       {/*<header></header>*/}
-      <main className="text-black rounded-lg my-2 grid sm:grid-cols-5 grid-cols-1 gap-2">
+      <main className="my-2 grid grid-cols-1 gap-2 rounded-lg text-black sm:grid-cols-5">
         <div className="sm:col-start-1 sm:col-end-5">
-          <article lang={language} className="bg-white shadow-md rounded-md text-gray-800 my-1 p-2">
+          <article lang={language} className="my-1 rounded-md bg-white p-2 text-gray-800 shadow-md">
             <AdvertisingContentBottom />
             <header>
               <p>title: {title}</p>

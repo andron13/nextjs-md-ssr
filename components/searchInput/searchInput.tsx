@@ -9,10 +9,10 @@ export default function SearchInput() {
   const [search, setSearch] = useState('');
 
   return (
-    <div className="w-full px-5 mt-6 sm:px-0 sm:mt-0 sm:w-[280px] sm:absolute sm:right-[25px] sm:top-[10px]">
+    <div className="mt-6 w-full px-5 sm:absolute sm:right-[25px] sm:top-[10px] sm:mt-0 sm:w-[280px] sm:px-0">
       <label
         htmlFor="searchInp"
-        className="flex gap-[6px] px-3 py-2 text-accent-secondary-700 rounded-md shadow-[0px_1px_2px_2px_rgba(239,239,239,1)]"
+        className="flex gap-[6px] rounded-md px-3 py-2 text-accent-secondary-700 shadow-[0px_1px_2px_2px_rgba(239,239,239,1)]"
       >
         <Image src={searchIcon} alt="" />
         <input

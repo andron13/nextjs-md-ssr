@@ -6,7 +6,7 @@ export default function Desserts({ color }: { color: string }) {
       width="70"
       height="47"
       viewBox="0 0 70 47"
-      className={`${color} transition-all duration-200 myRecepIcon`}
+      className={`${color} myRecepIcon transition-all duration-200`}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M37.5903 23.1808C38.0427 23.1808 38.4095 22.8141 38.4095 22.3617C38.4095 21.9093 38.0427 21.5426 37.5903 21.5426C37.138 21.5426 36.7712 21.9093 36.7712 22.3617C36.7712 22.8141 37.138 23.1808 37.5903 23.1808Z" />

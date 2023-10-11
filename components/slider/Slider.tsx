@@ -38,12 +38,12 @@ export default function Slider() {
         <SwiperSlide>
           <Image src={third} className="mySlide" alt="" />
         </SwiperSlide>
-        <div className="flex w-full justify-center gap-5 mt-10">
-          <button className="myPrev p-2 cursor-pointer">
+        <div className="mt-10 flex w-full justify-center gap-5">
+          <button className="myPrev cursor-pointer p-2">
             <ArrowLeft />
           </button>
-          <div className="myPag flex justify-around items-center gap-[10px]"></div>
-          <button className="myNext p-2 cursor-pointer">
+          <div className="myPag flex items-center justify-around gap-[10px]"></div>
+          <button className="myNext cursor-pointer p-2">
             <ArrowRight />
           </button>
         </div>

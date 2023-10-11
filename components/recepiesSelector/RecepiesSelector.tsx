@@ -15,27 +15,27 @@ export default function RecepiesSelector() {
 
   return (
     <div>
-      <div className="sm:flex justify-between sm:items-center sm:mt-8">
-        <div className="flex items-center mt-10 sm:mt-0">
-          <p className="text-2xl font-bold border-r-[3px] border-primary-200 rounded-sm pr-[10px]">
+      <div className="justify-between sm:mt-8 sm:flex sm:items-center">
+        <div className="mt-10 flex items-center sm:mt-0">
+          <p className="rounded-sm border-r-[3px] border-primary-200 pr-[10px] text-2xl font-bold">
             Browse&nbsp;Recepies
           </p>
-          <p className="pl-[10px] text-accent-500 text-sm font-[600] sm:text-base">
+          <p className="pl-[10px] text-sm font-[600] text-accent-500 sm:text-base">
             {recipesNumb} recipes
           </p>
         </div>
-        <div className="text-base font-[600] flex justify-between items-center mt-4 sm:w-[144px] sm:mt-0 ">
-          <button className="flex gap-[10px] items-center">
+        <div className="mt-4 flex items-center justify-between text-base font-[600] sm:mt-0 sm:w-[144px] ">
+          <button className="flex items-center gap-[10px]">
             <Image src={filterIcon} alt="" />
             Filters
           </button>
-          <button className="flex gap-[10px] items-center">
+          <button className="flex items-center gap-[10px]">
             <Image src={sortIcon} alt="" />
             Sort
           </button>
         </div>
       </div>
-      <ul className="flex gap-9 mt-10 pb-2 overflow-x-scroll sm:overflow-x-hidden">{catList}</ul>
+      <ul className="mt-10 flex gap-9 overflow-x-scroll pb-2 sm:overflow-x-hidden">{catList}</ul>
     </div>
   );
 }

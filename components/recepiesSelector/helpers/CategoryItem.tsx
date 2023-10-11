@@ -13,7 +13,7 @@ export default function CategoryItem({ Elem, title, catKey, activeCat, setActive
   return (
     <li>
       <button
-        className={`${textColor} hover:text-accent-400 transition-all duration-200 myRecepBtn flex flex-col justify-center items-center whitespace-nowrap gap-4`}
+        className={`${textColor} myRecepBtn flex flex-col items-center justify-center gap-4 whitespace-nowrap transition-all duration-200 hover:text-accent-400`}
         onClick={() => setActiveCat(catKey)}
       >
         <Elem color={svgColor} />

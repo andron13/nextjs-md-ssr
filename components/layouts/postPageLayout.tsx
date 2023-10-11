@@ -27,10 +27,10 @@ const PostPageLayout = ({ postMetadata, children }: propsType) => {
         <title>{title}</title>
         <meta name="description" content={subtitle} />
       </Head>
-      <header className="bg-gradient-to-r from-yellow-200 via-orange-300 to-pink-300 py-2 shadow-md rounded-md">
-        <div className="container mx-auto text-black text-center">
+      <header className="rounded-md bg-gradient-to-r from-yellow-200 via-orange-300 to-pink-300 py-2 shadow-md">
+        <div className="container mx-auto text-center text-black">
           <h1 className="text-4xl font-bold">{title}</h1>
-          <p className="text-lg mt-2">{subtitle + webSiteTitle}</p>
+          <p className="mt-2 text-lg">{subtitle + webSiteTitle}</p>
         </div>
       </header>
       <Navbar />
@@ -38,11 +38,11 @@ const PostPageLayout = ({ postMetadata, children }: propsType) => {
       <main>
         <div className="flex-grow">{children}</div>
       </main>
-      <div className="container mx-auto text-black text-center flex flex-row items-center justify-between shadow-md rounded-md">
+      <div className="container mx-auto flex flex-row items-center justify-between rounded-md text-center text-black shadow-md">
         <div>
           <DateFormatter dateString={date} />
         </div>
-        <div className="flex items-center space-x-4 gap-2">
+        <div className="flex items-center gap-2 space-x-4">
           <UserImg />
           <UserName userName={author} />
         </div>

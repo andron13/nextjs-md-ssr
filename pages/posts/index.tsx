@@ -11,7 +11,7 @@ const PostsIndex = ({ posts }: propsType) => {
   const sortedPosts = posts.sort((a, b) => Number(a.weight) - Number(b.weight));
   return (
     <PostsIndexLayout>
-      <ol className="mb-2 list-decimal ml-6">
+      <ol className="mb-2 ml-6 list-decimal">
         {sortedPosts.map((post) => (
           <li key={post.slug} className="m-2 text-lg">
             <Link href={`/posts/${post.slug}`} className="text-blue-500 hover:underline">

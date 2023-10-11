@@ -72,7 +72,7 @@ const recipes = [
 const items = recipes.map((recipe) => <RecipeCard recipe={recipe} key={recipe.title} />);
 export default function RecepiesBlock() {
   return (
-    <div className="flex flex-col justify-center mt-10 gap-5 sm:flex-row sm:gap-6 sm:flex-wrap">
+    <div className="mt-10 flex flex-col justify-center gap-5 sm:flex-row sm:flex-wrap sm:gap-6">
       {items}
     </div>
   );
