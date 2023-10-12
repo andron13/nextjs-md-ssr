@@ -3,9 +3,9 @@ import React from 'react';
 
 import PostsIndexLayout from '../../components/layouts/postsIndexLayout';
 import postMetadata from '../../service/postMetadata';
-import { MetadatObj } from '../../types';
+import { resultObj } from '../../types';
 
-type propsType = { posts: MetadatObj[] };
+type propsType = { posts: resultObj[] };
 
 const PostsIndex = ({ posts }: propsType) => {
   const sortedPosts = posts.sort((a, b) => Number(a.weight) - Number(b.weight));

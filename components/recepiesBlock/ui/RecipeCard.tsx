@@ -23,7 +23,7 @@ export default function RecipeCard(props: propsType) {
           {cookTime} min
         </div>
       </div>
-      <div className="relative z-20 translate-y-[-20px] rounded-b-lg bg-primary-50 px-4 py-5 shadow-[0px_3px_10px_1px_rgba(200,200,200,1)]">
+      <div className="relative z-20 translate-y-[-20px] rounded-b-[20px] bg-primary-50 px-4 py-5 shadow-[0px_3px_10px_1px_rgba(200,200,200,1)]">
         <h4 className="text-base font-[600]">{title}</h4>
         <div className="mt-[33px] flex justify-between text-[12px] font-[500] text-primary-600">
           <p>{category}</p>
