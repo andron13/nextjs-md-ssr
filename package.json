@@ -3,7 +3,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc",
+    "type-check": "tsc --noEmit",
     "test": "jest",
     "lint": "eslint ./",
     "eslint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./",
