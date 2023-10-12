@@ -7,7 +7,7 @@ import { resultObj } from '../types';
 function parseMetadata(
   matterResult: matter.GrayMatterFile<string>,
   filepath: string
-): Partial<resultObj> {
+): Omit<resultObj, 'content'> {
   return {
     title: matterResult.data.title,
     subtitle: matterResult.data.subtitle || '',

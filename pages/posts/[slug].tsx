@@ -6,14 +6,13 @@ import DisqusComments from '../../components/disqusComments/disqusComments';
 import PostPageLayout from '../../components/layouts/postPageLayout';
 import { MdToHtml } from '../../components/markdown';
 import { getPostData } from '../../service/postHandler';
-import { getAllPostSlugs } from '../../service/postMetadata';
-import { resultObj } from '../../types';
+import postMetadata, { getAllPostSlugs } from '../../service/postMetadata';
+import { resultObj, postData } from '../../types';
 
-type PostPageProps = { postMetadata: resultObj; content: string };
-
-const PostPage = ({ postMetadata, content }: PostPageProps) => {
+const PostPage = ({ postMetadata, content }: postData) => {
   const { title, subtitle, date, author, language, category, taxonomy, ingredients, weight, slug } =
     postMetadata;
+  console.log(postMetadata.author);
   return (
     <PostPageLayout postMetadata={postMetadata}>
       {/*<header></header>*/}
@@ -57,7 +56,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   try {
-    const { content, ...postMetadata } = await getPostData(params.slug);
+    const res: postData = await getPostData(params.slug);
+    const { content, postMetadata } = res;
     return { props: { content, postMetadata } };
   } catch (error) {
     return { notFound: true };

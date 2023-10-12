@@ -19,5 +19,10 @@ export type resultObj = {
   language: string;
   taxonomy: string;
   ingredients: string;
+  content?: string;
+};
+
+export type postData = {
+  postMetadata: Omit<resultObj, 'content'>;
   content: string;
 };

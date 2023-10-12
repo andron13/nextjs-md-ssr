@@ -4,7 +4,7 @@ import { domainName } from '../../constants/webSiteVars';
 import { resultObj } from '../../types';
 
 type propsType = {
-  postMetadata: resultObj;
+  postMetadata: Omit<resultObj, 'content'>;
 };
 
 const DisqusComments = ({ postMetadata }: propsType) => {

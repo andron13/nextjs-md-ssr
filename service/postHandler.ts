@@ -1,6 +1,7 @@
 import parseMetadata from './postMetadataHelpers';
 import processFiles from './processFiles';
 import { POSTS_FOLDER } from '../constants/webSiteVars';
+import { resultObj, postData } from '../types';
 
 export async function getAllPostsData() {
   return await processFiles(POSTS_FOLDER, (matterResult, filepath) => {
@@ -9,17 +10,19 @@ export async function getAllPostsData() {
   });
 }
 
+type test = (slug: string) => postData;
+
 export const getPostData = async (slug: string) => {
-  const matchingPosts = await processFiles(POSTS_FOLDER, (matterResult, filepath) => {
+  const matchingPosts: postData[] = await processFiles(POSTS_FOLDER, (matterResult, filepath) => {
     const postMetadata = parseMetadata(matterResult, filepath);
     if (postMetadata.slug === slug) {
       return { content: matterResult.content, postMetadata };
     } else {
-      return { content: 'content', slug: 'wrong post' };
+      return { content: 'content', postMetadata };
     }
   });
 
-  const filteredPosts = matchingPosts.filter((post) => post.slug !== 'wrong post');
+  const filteredPosts = matchingPosts.filter((post) => post.content !== 'content');
 
   if (filteredPosts.length) {
     return filteredPosts[0];

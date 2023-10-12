@@ -7,8 +7,8 @@ type propsType = {
 };
 
 export const DateFormatter = ({ dateString = new Date(), locale = 'de' }: propsType) => {
+  // const date = parseISO(dateString instanceof Date ? dateString.toISOString() : dateString);
   const date = parseISO(dateString.toString());
-
   const localesMap = {
     ru: ru,
     enUS: enUS,

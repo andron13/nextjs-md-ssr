@@ -10,7 +10,7 @@ import Navbar from '../navBar';
 import Breadcrumb from '../seo/breadcrumb';
 
 type propsType = {
-  postMetadata: resultObj;
+  postMetadata: Omit<resultObj, 'content'>;
   children: React.ReactElement;
 };
 

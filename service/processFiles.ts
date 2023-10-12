@@ -3,14 +3,17 @@ import fs from 'fs';
 import matter from 'gray-matter';
 
 import getAllFilesRecursively from './fileHelpers';
-import { resultObj } from '../types';
+import { resultObj, postData } from '../types';
 
 const processFiles = async (
   folder: string,
-  callback: (matterResult: matter.GrayMatterFile<string>, filepath: string) => Partial<resultObj>
+  callback: (
+    matterResult: matter.GrayMatterFile<string>,
+    filepath: string
+  ) => Partial<resultObj> | postData
 ) => {
   const filePaths = getAllFilesRecursively(folder);
-  const results: Partial<resultObj>[] = [];
+  const results: any[] = [];
 
   filePaths.forEach((filepath: string) => {
     const fileContents = fs.readFileSync(filepath, 'utf8');
