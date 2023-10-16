@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Analytics from './analytics';
 
 const SeoScripts = () => {

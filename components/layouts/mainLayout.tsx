@@ -1,24 +1,25 @@
 import Head from 'next/head';
-import React from 'react';
 
-import Footer from '../footer';
+import Logo from '../logo/logo';
+import SearchInput from '../searchInput/searchInput';
 import SeoScripts from '../seo/seoScripts';
 
 type propsType = {
-  pageTitle: string;
   children: React.ReactElement;
 };
 
-const MainLayout = ({ pageTitle, children }: propsType) => {
+const MainLayout = ({ children }: propsType) => {
   return (
     <>
       <Head>
-        <title>{pageTitle}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="flex flex-col min-h-screen max-w-5xl mx-auto">
+      <header className="sticky top-0 z-40 mx-auto w-full bg-primary-50 pb-5 2xl:container sm:pb-0">
+        <Logo />
+        <SearchInput />
+      </header>
+      <section className="mx-auto mb-8 mt-5 w-full max-w-[955px] px-6 sm:mt-10 lg:px-0">
         {children}
-        <Footer />
         <SeoScripts />
       </section>
     </>

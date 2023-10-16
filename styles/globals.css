@@ -1,68 +1,136 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 body {
-    line-height: 1.6;
-    color: #333;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
 }
-
-p {
-    margin-bottom: 1rem;
-}
-
 
 blockquote {
-    margin: 1rem 0;
-    padding-left: 1rem;
-    border-left: 4px solid #333;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid #333;
 }
 
 blockquote p {
-    font-style: italic;
+  font-style: italic;
 }
 
 a {
-    color: #3182CE;
-    text-decoration: underline;
+  color: #3182ce;
+  text-decoration: underline;
 }
 
 a:hover {
-    color: #2C5282;
+  color: #2c5282;
 }
 
 article {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-section {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: #f7f7f7;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .list-decimal {
-    list-style-type: decimal;
+  list-style-type: decimal;
+}
+
+.swiper-slide {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.myPrev,
+.myNext {
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+
+.myPrev:hover,
+.myNext:hover {
+  background-color: #efefef;
+}
+
+.myPrev:hover .sliderArrow,
+.myNext:hover .sliderArrow {
+  fill: hsl(17, 85%, 47%);
+}
+
+.myPrev.swiper-button-disabled .sliderArrow,
+.myNext.swiper-button-disabled .sliderArrow {
+  fill: #989898;
+}
+
+.swiper-pagination-bullet {
+  transition: all 0.3s;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #dd4c12;
+  transform: scale(1.2);
+}
+
+.myRecepBtn:hover .myRecepIcon {
+  fill: hsl(24, 90%, 61%);
+}
+
+.mySlide {
+  border-radius: 35px;
+  object-fit: cover;
+  max-height: 340px;
+}
+
+.recipeImg {
+  border-radius: 20px;
+  height: 180px;
+  object-fit: cover;
+}
+
+@media (min-width: 420px) {
+  .mySlide {
+    max-height: 450px;
+  }
+  .recipeImg {
+    height: 250px;
+  }
+}
+
+@media (min-width: 550px) {
+  .mySlide {
+    max-height: 625px;
+  }
+}
+
+@media (min-width: 640px) {
+  .recipeImg {
+    height: 180px;
+  }
 }

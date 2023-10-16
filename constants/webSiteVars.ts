@@ -1,6 +1,6 @@
 export const POSTS_FOLDER = '_source/_posts';
 export const domainName = 'www.testsite.de';
-export const webSiteTitle = 'Войти в АйЦи';
+export const webSiteTitle = 'Pick-a-Meal';
 export const webSiteSlogan = 'Зайди и выгони всех';
 
 export const colors = {

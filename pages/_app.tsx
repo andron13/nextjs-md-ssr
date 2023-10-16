@@ -1,12 +1,10 @@
-import React from 'react';
-
 import MainLayout from '../components/layouts/mainLayout';
+
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
-  const pageTitle = pageProps.pageTitle || 'pageTitle not set';
   return (
-    <MainLayout pageTitle={pageTitle}>
+    <MainLayout>
       <Component {...pageProps} />
     </MainLayout>
   );

@@ -1,11 +1,10 @@
 import { DiscussionEmbed } from 'disqus-react';
-import React from 'react';
 
 import { domainName } from '../../constants/webSiteVars';
-import { MetadatObj } from '../../types';
+import { resultObj } from '../../types';
 
 type propsType = {
-  postMetadata: MetadatObj;
+  postMetadata: Omit<resultObj, 'content'>;
 };
 
 const DisqusComments = ({ postMetadata }: propsType) => {

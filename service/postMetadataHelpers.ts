@@ -2,9 +2,12 @@ import path from 'path';
 
 import matter from 'gray-matter';
 
-import { MetadatObj } from '../types';
+import { resultObj } from '../types';
 
-function parseMetadata(matterResult: matter.GrayMatterFile<string>, filepath: string): MetadatObj {
+function parseMetadata(
+  matterResult: matter.GrayMatterFile<string>,
+  filepath: string
+): Omit<resultObj, 'content'> {
   return {
     title: matterResult.data.title,
     subtitle: matterResult.data.subtitle || '',

@@ -7,7 +7,7 @@ const TestContent = () => {
   return (
     <div>
       <h1>Заголовок 1</h1>
-      <div className="max-w-screen-xl mx-auto">
+      <div className="mx-auto max-w-screen-xl">
         <div className="flex flex-wrap gap-4">
           <div className="w-full sm:w-1/2">
             <p>
@@ -27,11 +27,11 @@ const TestContent = () => {
               porttitor vitae magna sit amet volutpat.
             </p>
           </div>
-          <div className="max-w-screen-xl mx-auto">
+          <div className="mx-auto max-w-screen-xl">
             <Image
               src={wework}
               alt="Logo"
-              className="w-full rounded-img"
+              className="rounded-img w-full"
               style={{
                 objectFit: 'cover',
                 borderRadius: '20px',
@@ -41,7 +41,7 @@ const TestContent = () => {
         </div>
       </div>
       <h2>Заголовок 2</h2>
-      <ul className="list-disc my-4 ml-8">
+      <ul className="my-4 ml-8 list-disc">
         <li>Элемент списка 1</li>
         <li>Элемент списка 2</li>
         <li>Элемент списка 3</li>

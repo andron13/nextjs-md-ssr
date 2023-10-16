@@ -3,17 +3,17 @@ import fs from 'fs';
 import matter from 'gray-matter';
 
 import getAllFilesRecursively from './fileHelpers';
-import { MetadatObj } from '../types';
+import { resultObj, postData } from '../types';
 
 const processFiles = async (
   folder: string,
   callback: (
     matterResult: matter.GrayMatterFile<string>,
     filepath: string
-  ) => { [key: string]: string | Partial<MetadatObj> }
+  ) => Partial<resultObj> | postData
 ) => {
   const filePaths = getAllFilesRecursively(folder);
-  const results = [];
+  const results: any[] = [];
 
   filePaths.forEach((filepath: string) => {
     const fileContents = fs.readFileSync(filepath, 'utf8');

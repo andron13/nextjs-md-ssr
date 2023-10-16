@@ -1,17 +1,15 @@
 import Image from 'next/image';
-import React from 'react';
 
 import { defaultLink } from './Link/myLink';
-
 import { primaryLinks } from '../constants';
-import logo from '../public/assets/img/webpage/logo.png';
+import logo from '../public/assets/icons/logo.svg';
 import { LinkObj } from '../types';
 
 const Navbar = () => {
   return (
     <nav className="pt-2">
-      <div className="mx-auto px-2 flex justify-between items-center">
-        <div className="text-black font-bold">
+      <div className="mx-auto flex items-center justify-between px-2">
+        <div className="font-bold text-black">
           <Image src={logo} alt="Logo" height={30} />
         </div>
         <div className="space-x-6">

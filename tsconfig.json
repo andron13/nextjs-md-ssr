@@ -19,16 +19,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true
   },
   "include": [
     "src",
-    ".eslintrc.cjs"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+    ".eslintrc.cjs",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/**/*.ts",
+    "**/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

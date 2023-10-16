@@ -1,5 +1,4 @@
 import Markdown from 'markdown-to-jsx';
-import React from 'react';
 
 type HTMLTags = keyof JSX.IntrinsicElements;
 type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
