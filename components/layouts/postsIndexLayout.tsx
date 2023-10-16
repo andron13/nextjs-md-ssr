@@ -13,7 +13,7 @@ const PostsIndexLayout = ({ children }: propsType) => {
           <p className="mt-2 text-lg">{webSiteTitle}</p>
         </div>
       </header>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="my-2 grid grid-cols-1 gap-2 rounded-lg text-black shadow-md sm:grid-cols-5">
         <div className="sm:col-start-1 sm:col-end-5">{children}</div>
         <Aside />

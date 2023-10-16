@@ -16,10 +16,10 @@ const PostPage = ({ postMetadata, content }: postData) => {
   return (
     <PostPageLayout postMetadata={postMetadata}>
       {/*<header></header>*/}
-      <main className="my-2 grid grid-cols-1 gap-2 rounded-lg text-black sm:grid-cols-5">
+      <main className="my-2 grid grid-cols-1 gap-2 text-black sm:grid-cols-5">
         <div className="sm:col-start-1 sm:col-end-5">
-          <article lang={language} className="my-1 rounded-md bg-white p-2 text-gray-800 shadow-md">
-            <AdvertisingContentBottom />
+          <article lang={language} className="my-1 bg-white p-2 text-gray-800 ">
+            {/* <AdvertisingContentBottom />
             <header>
               <p>title: {title}</p>
               <p>subtitle: {subtitle}</p>
@@ -32,12 +32,12 @@ const PostPage = ({ postMetadata, content }: postData) => {
               <p>taxonomy: {taxonomy}</p>
               <p>language: {language}</p>
             </header>
-            <hr />
+            <hr /> */}
             <MdToHtml mdSource={content} />
           </article>
           <DisqusComments postMetadata={postMetadata} />
         </div>
-        <Aside />
+        {/* <Aside /> */}
       </main>
     </PostPageLayout>
   );

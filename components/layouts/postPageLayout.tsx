@@ -27,18 +27,18 @@ const PostPageLayout = ({ postMetadata, children }: propsType) => {
         <title>{title}</title>
         <meta name="description" content={subtitle} />
       </Head>
-      <header className="rounded-md bg-gradient-to-r from-yellow-200 via-orange-300 to-pink-300 py-2 shadow-md">
+      {/* <header className="rounded-md bg-gradient-to-r from-yellow-200 via-orange-300 to-pink-300 py-2 shadow-md">
         <div className="container mx-auto text-center text-black">
           <h1 className="text-4xl font-bold">{title}</h1>
           <p className="mt-2 text-lg">{subtitle + webSiteTitle}</p>
         </div>
-      </header>
-      <Navbar />
-      <Breadcrumb breadcrumbs={breadcrumbs} />
+      </header> */}
+      {/* <Navbar /> */}
+      {/* <Breadcrumb breadcrumbs={breadcrumbs} /> */}
       <main>
         <div className="flex-grow">{children}</div>
       </main>
-      <div className="container mx-auto flex flex-row items-center justify-between rounded-md text-center text-black shadow-md">
+      {/* <div className="container mx-auto flex flex-row items-center justify-between rounded-md text-center text-black shadow-md">
         <div>
           <DateFormatter dateString={date} />
         </div>
@@ -47,7 +47,7 @@ const PostPageLayout = ({ postMetadata, children }: propsType) => {
           <UserName userName={author} />
         </div>
       </div>
-      <AdvertisementPlaceholder />
+      <AdvertisementPlaceholder /> */}
     </>
   );
 };
