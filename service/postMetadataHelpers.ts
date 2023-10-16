@@ -22,6 +22,8 @@ function parseMetadata(
     ingredients: matterResult.data.ingredients || '',
     weight: matterResult.data.weight || 100,
     slug: matterResult.data.slug || path.basename(filepath).replace('.md', ''),
+    image: matterResult.data.image,
+    description: matterResult.data.description,
   };
 }
 

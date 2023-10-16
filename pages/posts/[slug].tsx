@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import AdvertisingContentBottom from '../../components/advertising/contentBottom';
 import Aside from '../../components/aside';
@@ -6,19 +6,43 @@ import DisqusComments from '../../components/disqusComments/disqusComments';
 import PostPageLayout from '../../components/layouts/postPageLayout';
 import { MdToHtml } from '../../components/markdown';
 import { getPostData } from '../../service/postHandler';
+import Image from 'next/image';
 import postMetadata, { getAllPostSlugs } from '../../service/postMetadata';
 import { resultObj, postData } from '../../types';
 
 const PostPage = ({ postMetadata, content }: postData) => {
-  const { title, subtitle, date, author, language, category, taxonomy, ingredients, weight, slug } =
+  const { title, subtitle, date, author, language, category, taxonomy, ingredients, weight, slug, description, image } =
     postMetadata;
-  console.log(postMetadata.author);
+  const first = useRef<HTMLDivElement | null>(null)
+  const second = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    first.current = document.getElementById("ingridients") as HTMLDivElement;
+    second.current = document.getElementById("directions") as HTMLDivElement;
+  }, []);
+
+  function handleClick(e) {
+    console.log(e.target)
+    e.stopPropagation();
+    if (e.target.id === "ingridients") {
+      e.target.classList.add("hidden");
+      second.current?.classList.add("block");
+      second.current?.classList.remove("hidden");
+    }
+
+    if (e.target.id === "directions") {
+      e.target.classList.add("hidden");
+      first.current?.classList.add("block");
+      first.current?.classList.remove("hidden");
+    }
+  }
+
   return (
     <PostPageLayout postMetadata={postMetadata}>
       {/*<header></header>*/}
       <main className="my-2 grid grid-cols-1 gap-2 text-black sm:grid-cols-5">
         <div className="sm:col-start-1 sm:col-end-5">
-          <article lang={language} className="my-1 bg-white p-2 text-gray-800 ">
+          <article lang={language} className="my-1 bg-white text-gray-800 ">
             {/* <AdvertisingContentBottom />
             <header>
               <p>title: {title}</p>
@@ -31,9 +55,20 @@ const PostPage = ({ postMetadata, content }: postData) => {
               <p>slug: {slug}</p>
               <p>taxonomy: {taxonomy}</p>
               <p>language: {language}</p>
+              <p>img: {imageUrl}</p>
             </header>
             <hr /> */}
-            <MdToHtml mdSource={content} />
+            <div>
+              <div className="min-h-[280px] w-full relative pl-6 pt-16 pr-24">
+                <div className="w-full h-full absolute inset-x-0 top-0 bg-black/60 z-10"></div>
+                  <Image src={image} alt={slug} fill />
+                  <h1 className="relative z-20 text-white text-2xl mb-0">{title}</h1>
+                  <p className="relative z-20 text-white/80 text-xs">{description}</p>
+                </div>
+            <div className="p-2" onClick={handleClick}>
+              <MdToHtml mdSource={content} />
+            </div>
+            </div>
           </article>
           <DisqusComments postMetadata={postMetadata} />
         </div>

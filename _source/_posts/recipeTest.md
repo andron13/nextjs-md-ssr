@@ -1,21 +1,24 @@
 ---
-title: "test recipe"
+title: "Сырники из творога"
 subtitle: "test recipe"
 date: 2023-01-08
 author: "andron13"
 category: music
 weight: 23
+image: "/assets/img/syrniki.jpg"
+description: "Для тех, кто с утра перед работой любит хорошо покушать, посоветую быстрый способ приготовления домашних сырников"
 slug: recipe
-imageUrl: https://via.placeholder.com/500
 ---
 
-![Placeholder Image](https://via.placeholder.com/500 "Placeholder Image Title")
+<div id="ingridients" className="">
+* творог
+* яйца
+* сахар
+* мука
+</div>
 
-# Potato BBQ
-These BBQ potatoes are the perfect side dish to make for summer cookouts or anytime you're in the mood to fire up the grill.
-
-1. 4 medium red potatoes, cut into 3/4-inch cubes
-2. 2 tablespoons McCormick® Grill Mates® Barbecue Seasoning
-
-1. Toss potatoes with oil in large bowl. Add Seasoning; toss to coat evenly.
-2. Place potatoes and onions on large wide sheet of heavy duty foil. Bring up foil sides; double fold top and ends to tightly seal packet.
+<div id="directions" className="hidden">
+* Смешать все ингредиенты в любом порядке.
+* Столовой ложкой выкладываю порционно на сковороду.
+* Обжариваю с каждой стороны по 8-10 минут.
+</div>

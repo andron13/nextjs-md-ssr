@@ -44,7 +44,7 @@ export const MdToHtml = ({ mdSource }: propsType) => {
         'aria-label': 'external link',
       },
     },
-    ul: { component: 'ul', props: { className: 'list-disc my-4 ml-8' } },
+    ul: { component: 'ul', props: { className: 'list-disc my-4 ml-8 list-image-checkmark' } },
     ol: { component: 'ol', props: { className: 'list-decimal my-4 ml-8' } },
     li: { component: 'li', props: { className: 'my-2' } },
     img: {

@@ -15,7 +15,9 @@ type propsType = {
 };
 
 const PostPageLayout = ({ postMetadata, children }: propsType) => {
-  const { title, subtitle, category, slug, date, author } = postMetadata;
+  const { title, subtitle, category, slug, date, author, image } = postMetadata;
+  console.log(image);
+  console.log(postMetadata);
   const breadcrumbs: BreadcrumbObj[] = [
     { label: 'Home', href: '/' },
     { label: 'Posts', href: '/posts' },

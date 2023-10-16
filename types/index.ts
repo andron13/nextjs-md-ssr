@@ -20,6 +20,8 @@ export type resultObj = {
   taxonomy: string;
   ingredients: string;
   content?: string;
+  image: string;
+  description: string;
 };
 
 export type postData = {
