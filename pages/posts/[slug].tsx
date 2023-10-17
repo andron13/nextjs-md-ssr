@@ -49,8 +49,8 @@ const PostPage = ({ postMetadata, content }: postData) => {
   return (
     <PostPageLayout postMetadata={postMetadata}>
       {/*<header></header>*/}
-      <main className="my-2 grid grid-cols-1 gap-2 text-black sm:grid-cols-5">
-        <div className="sm:col-start-1 sm:col-end-5">
+      <main className="my-2 text-black sm:grid-cols-5">
+        <div className="max-w-screen-lg">
           <article lang={language} className="my-1 bg-white text-gray-800 ">
             {/* <AdvertisingContentBottom />
             <header>
@@ -68,11 +68,27 @@ const PostPage = ({ postMetadata, content }: postData) => {
             </header>
             <hr /> */}
             <div>
-              <div className="min-h-[280px] w-full relative pl-6 pt-16 pr-24">
-                <div className="w-full h-full absolute inset-x-0 top-0 bg-black/60 z-10"></div>
-                  <Image src={image} alt={slug} fill />
-                  <h1 className="relative z-20 text-white text-2xl mb-0">{title}</h1>
-                  <p className="relative z-20 text-white/80 text-xs">{description}</p>
+              <div className="min-h-[280px] w-full relative pl-6 pt-16 pr-24 rounded-3xl sm:pr-96 sm:pt-24 flex flex-col gap-y-4 sm:gap-y-12">
+                <div className="w-full h-full absolute inset-x-0 top-0 bg-black/50 z-10 rounded-3xl"></div>
+                  <Image src={image} alt={slug} fill objectFit='cover' className='rounded-3xl'/>
+                  <div>
+                    <h1 className="relative z-20 text-white text-2xl mb-0">{title}</h1>
+                    <p className="relative z-20 text-white/80 text-xs">{description}</p>
+                  </div>
+                  <div className="relative z-20 text-white flex justify-between max-w-[300px]">
+                    <div>
+                      <h6 className="text-xs text-white/80">Каллории</h6>
+                      <p className="text-xs text-white/80">1000</p>
+                    </div>
+                    <div>
+                      <h6 className="text-xs text-white/80">Время</h6>
+                      <p className="text-xs text-white/80">30 минут</p>
+                    </div>
+                    <div>
+                      <h6 className="text-xs text-white/80">Категория</h6>
+                      <p className="text-xs text-white/80">1000</p>
+                    </div>
+                  </div>
                 </div>
             <div className="p-6" onClick={handleClick}>
               <MdToHtml mdSource={content} />
