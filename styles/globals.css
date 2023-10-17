@@ -143,3 +143,7 @@ article {
   justify-content: center;
   column-gap: 48px;
 }
+
+.checkmark {
+  @apply bg-[url("/assets/icons/checkIcon.svg")] bg-center bg-no-repeat block w-8 h-8 
+}

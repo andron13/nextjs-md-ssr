@@ -64,9 +64,9 @@ module.exports = {
         'black-900': '#3d3d3d',
         'black-950': '#000000',
       },
-      listStyleImage: {
+      backgroundImage: {
         checkmark: 'url("/assets/icons/checkIcon.svg")',
-      },
+      }
     },
   },
   plugins: [],

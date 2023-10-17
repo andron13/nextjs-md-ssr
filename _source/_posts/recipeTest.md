@@ -16,14 +16,14 @@ slug: recipe
 </div>
 
 <div id="ingridients" className="">
-* творог
-* яйца
-* сахар
-* мука
+* <span class="checkmark"></span> Творог
+* <span class="checkmark"></span> Яйца
+* <span class="checkmark"></span> Сахар
+* <span class="checkmark"></span> Мука
 </div>
 
 <div id="directions" className="hidden">
-* Смешать все ингредиенты в любом порядке.
-* Столовой ложкой выкладываю порционно на сковороду.
-* Обжариваю с каждой стороны по 8-10 минут.
+* <span class="checkmark"></span> Смешать все ингредиенты в любом порядке.
+* <span class="checkmark"></span> Столовой ложкой выкладываю порционно на сковороду.
+* <span class="checkmark"></span> Обжариваю с каждой стороны по 8-10 минут.
 </div>
