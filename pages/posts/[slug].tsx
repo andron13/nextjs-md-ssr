@@ -11,7 +11,7 @@ import postMetadata, { getAllPostSlugs } from '../../service/postMetadata';
 import { resultObj, postData } from '../../types';
 
 const PostPage = ({ postMetadata, content }: postData) => {
-  const { title, subtitle, date, author, language, category, taxonomy, ingredients, weight, slug, description, image } =
+  const { title, subtitle, date, author, language, category, taxonomy, ingredients, weight, slug, description, image, calories, time } =
     postMetadata;
   const ingridientsDiv = useRef<HTMLDivElement | null>(null)
   const directionsDiv = useRef<HTMLDivElement | null>(null)
@@ -78,16 +78,16 @@ const PostPage = ({ postMetadata, content }: postData) => {
                   </div>
                   <div className="relative z-20 text-white flex justify-between max-w-[300px]">
                     <div>
-                      <h6 className="text-xs text-white/80">Каллории</h6>
-                      <p className="text-xs text-white/80">1000</p>
+                      <h6 className="text-xs text-white/80">Калории</h6>
+                      <p className="text-xs text-white/80">{calories}</p>
                     </div>
                     <div>
                       <h6 className="text-xs text-white/80">Время</h6>
-                      <p className="text-xs text-white/80">30 минут</p>
+                      <p className="text-xs text-white/80">{time} минут</p>
                     </div>
                     <div>
                       <h6 className="text-xs text-white/80">Категория</h6>
-                      <p className="text-xs text-white/80">1000</p>
+                      <p className="text-xs text-white/80">{category}</p>
                     </div>
                   </div>
                 </div>

@@ -24,6 +24,8 @@ function parseMetadata(
     slug: matterResult.data.slug || path.basename(filepath).replace('.md', ''),
     image: matterResult.data.image,
     description: matterResult.data.description,
+    time: matterResult.data.time,
+    calories: matterResult.data.calories,
   };
 }
 

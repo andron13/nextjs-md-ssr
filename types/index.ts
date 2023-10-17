@@ -22,6 +22,8 @@ export type resultObj = {
   content?: string;
   image: string;
   description: string;
+  calories: number;
+  time: number;
 };
 
 export type postData = {
