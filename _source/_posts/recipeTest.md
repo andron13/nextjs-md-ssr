@@ -11,11 +11,11 @@ slug: recipe
 ---
 
 <div class="recipe-buttons">
-  <button class="inline-block text-red-800" id="ingridients_btn">Ingridients</button>
+  <button class="inline-block text-red-800 active" id="ingridients_btn">Ingridients</button>
   <button class="inline-block" id="directions_btn">Directions</button>
 </div>
 
-<div id="ingridients" className="active">
+<div id="ingridients" className="">
 * <span class="checkmark"></span> Творог
 * <span class="checkmark"></span> Яйца
 * <span class="checkmark"></span> Сахар
