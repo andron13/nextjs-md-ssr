@@ -15,7 +15,7 @@ slug: recipe
   <button class="inline-block" id="directions_btn">Directions</button>
 </div>
 
-<div id="ingridients" className="">
+<div id="ingridients" className="active">
 * <span class="checkmark"></span> Творог
 * <span class="checkmark"></span> Яйца
 * <span class="checkmark"></span> Сахар
