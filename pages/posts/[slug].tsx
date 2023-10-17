@@ -27,8 +27,6 @@ const PostPage = ({ postMetadata, content }: postData) => {
   }, []);
 
   function handleClick(e) {
-    console.log(e.target)
-    // e.stopPropagation();
     if (e.target.id === "ingridients_btn") {
       e.target.classList.add("active");
       directionsBtn.current?.classList.remove("active");
@@ -70,8 +68,9 @@ const PostPage = ({ postMetadata, content }: postData) => {
             </header>
             <hr /> */}
             <div>
-              <div className="min-h-[280px] w-full relative pl-6 pt-16 pr-24 rounded-3xl sm:pr-96 sm:pt-24 flex flex-col gap-y-4 sm:gap-y-12">
+              <div className="min-h-[280px] w-full relative pl-6 pt-8 pr-24 rounded-3xl sm:pr-96 sm:pt-24 flex flex-col gap-y-4 sm:gap-y-12">
                 <div className="w-full h-full absolute inset-x-0 top-0 bg-black/50 z-10 rounded-3xl"></div>
+                  <img src="/assets/icons/arrowBack.svg" className="relative z-20 w-4 h-5" alt="" />
                   <Image src={image} alt={slug} fill objectFit='cover' className='rounded-3xl'/>
                   <div>
                     <h1 className="relative z-20 text-white text-2xl mb-0">{title}</h1>
