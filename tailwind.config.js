@@ -63,6 +63,7 @@ module.exports = {
         'black-800': '#454545',
         'black-900': '#3d3d3d',
         'black-950': '#000000',
+        'active': '#dd4c12',
       },
       backgroundImage: {
         checkmark: 'url("/assets/icons/checkIcon.svg")',

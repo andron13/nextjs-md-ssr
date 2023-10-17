@@ -156,7 +156,7 @@ ul li {
 }
 
 .active {
-  @apply border-b-[#dd4c12] border-b-2 text-[#DD4C12];
+  @apply border-b-active border-b-2 text-active;
 }
 
 #ingridients_btn, #directions_btn {
