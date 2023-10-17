@@ -134,3 +134,12 @@ article {
     height: 180px;
   }
 }
+
+.recipe-buttons {
+  display: flex;
+  padding: 10px 20px 10px 20px;
+  padding-bottom: ;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  column-gap: 48px;
+}

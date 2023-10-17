@@ -10,6 +10,11 @@ description: "Для тех, кто с утра перед работой люб
 slug: recipe
 ---
 
+<div class="recipe-buttons">
+  <button class="inline-block text-red-800" id="ingridients_btn">Ingridients</button>
+  <button class="inline-block" id="directions_btn">Directions</button>
+</div>
+
 <div id="ingridients" className="">
 * творог
 * яйца

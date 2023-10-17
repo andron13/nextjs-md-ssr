@@ -13,27 +13,36 @@ import { resultObj, postData } from '../../types';
 const PostPage = ({ postMetadata, content }: postData) => {
   const { title, subtitle, date, author, language, category, taxonomy, ingredients, weight, slug, description, image } =
     postMetadata;
-  const first = useRef<HTMLDivElement | null>(null)
-  const second = useRef<HTMLDivElement | null>(null)
+  const ingridientsDiv = useRef<HTMLDivElement | null>(null)
+  const directionsDiv = useRef<HTMLDivElement | null>(null)
+  const ingridientsBtn= useRef<HTMLButtonElement | null>(null)
+  const directionsBtn= useRef<HTMLButtonElement | null>(null)
+
 
   useEffect(() => {
-    first.current = document.getElementById("ingridients") as HTMLDivElement;
-    second.current = document.getElementById("directions") as HTMLDivElement;
+    ingridientsDiv.current = document.getElementById("ingridients") as HTMLDivElement;
+    directionsDiv.current = document.getElementById("directions") as HTMLDivElement;
+    ingridientsBtn.current = document.getElementById("ingridients_btn") as HTMLButtonElement;
+    directionsBtn.current = document.getElementById("directions_btn") as HTMLButtonElement;
   }, []);
 
   function handleClick(e) {
     console.log(e.target)
-    e.stopPropagation();
-    if (e.target.id === "ingridients") {
-      e.target.classList.add("hidden");
-      second.current?.classList.add("block");
-      second.current?.classList.remove("hidden");
+    // e.stopPropagation();
+    if (e.target.id === "ingridients_btn") {
+      // e.target.classList.add("hidden");
+      ingridientsDiv.current?.classList.add("block");
+      ingridientsDiv.current?.classList.remove("hidden");
+      directionsDiv.current?.classList.remove("block");
+      directionsDiv.current?.classList.add("hidden");
     }
 
-    if (e.target.id === "directions") {
-      e.target.classList.add("hidden");
-      first.current?.classList.add("block");
-      first.current?.classList.remove("hidden");
+    if (e.target.id === "directions_btn") {
+      // e.target.classList.add("hidden");
+      directionsDiv.current?.classList.add("block");
+      directionsDiv.current?.classList.remove("hidden");
+      ingridientsDiv.current?.classList.remove("block");
+      ingridientsDiv.current?.classList.add("hidden");
     }
   }
 
@@ -65,7 +74,7 @@ const PostPage = ({ postMetadata, content }: postData) => {
                   <h1 className="relative z-20 text-white text-2xl mb-0">{title}</h1>
                   <p className="relative z-20 text-white/80 text-xs">{description}</p>
                 </div>
-            <div className="p-2" onClick={handleClick}>
+            <div className="p-6" onClick={handleClick}>
               <MdToHtml mdSource={content} />
             </div>
             </div>
