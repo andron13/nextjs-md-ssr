@@ -30,7 +30,8 @@ const PostPage = ({ postMetadata, content }: postData) => {
     console.log(e.target)
     // e.stopPropagation();
     if (e.target.id === "ingridients_btn") {
-      // e.target.classList.add("hidden");
+      e.target.classList.add("active");
+      directionsBtn.current?.classList.remove("active");
       ingridientsDiv.current?.classList.add("block");
       ingridientsDiv.current?.classList.remove("hidden");
       directionsDiv.current?.classList.remove("block");
@@ -38,7 +39,8 @@ const PostPage = ({ postMetadata, content }: postData) => {
     }
 
     if (e.target.id === "directions_btn") {
-      // e.target.classList.add("hidden");
+      e.target.classList.add("active");
+      ingridientsBtn.current?.classList.remove("active");
       directionsDiv.current?.classList.add("block");
       directionsDiv.current?.classList.remove("hidden");
       ingridientsDiv.current?.classList.remove("block");
