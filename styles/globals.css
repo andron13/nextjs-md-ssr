@@ -147,3 +147,11 @@ article {
 .checkmark {
   @apply bg-[url("/assets/icons/checkIcon.svg")] bg-center bg-no-repeat block w-8 h-8 
 }
+
+#directions img {
+  @apply block h-auto w-full mt-6 mx-auto sm:w-1/2
+}
+
+ul li {
+  @apply flex gap-x-2 items-center;
+}

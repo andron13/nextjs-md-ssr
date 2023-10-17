@@ -23,7 +23,7 @@ slug: recipe
 </div>
 
 <div id="directions" className="hidden">
-* <span class="checkmark"></span> Смешать все ингредиенты в любом порядке.
-* <span class="checkmark"></span> Столовой ложкой выкладываю порционно на сковороду.
-* <span class="checkmark"></span> Обжариваю с каждой стороны по 8-10 минут.
+1. <div>Смешать все ингредиенты в любом порядке.<img src="/assets/img/recipeStep.jpeg"/></div>
+2. <div>Столовой ложкой выкладываю порционно на сковороду.<img src="/assets/img/recipeStep.jpeg"/></div>
+3. <div> Обжариваю с каждой стороны по 8-10 минут.<img src="/assets/img/recipeStep.jpeg"/></div>
 </div>

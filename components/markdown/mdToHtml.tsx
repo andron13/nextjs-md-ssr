@@ -46,7 +46,7 @@ export const MdToHtml = ({ mdSource }: propsType) => {
     },
     ul: { component: 'ul', props: { className: 'list-disc my-4 ml-4 list-image-checkmark flex flex-col gap-y-6' } },
     ol: { component: 'ol', props: { className: 'list-decimal my-4 ml-8' } },
-    li: { component: 'li', props: { className: 'flex gap-x-2 items-center' } },
+    li: { component: 'li', props: { className: '' } },
     img: {
       component: 'img',
       props: {
