@@ -28,7 +28,7 @@ function Checkbox({ label, className }: IFilterCheckboxProps) {
         <input
           onClick={() => setIsChecked((prevState) => !prevState)}
           checked={isChecked}
-          className="h-6 w-6 appearance-none rounded-md border border-primary-400 transition-all checked:bg-black focus:border-transparent focus:outline-none focus:ring focus:ring-accent-600 focus:ring-opacity-50"
+          className="h-6 w-6 appearance-none rounded-md border border-primary-400 transition-all checked:bg-black hover:border-transparent hover:ring hover:ring-black-500 focus:border-transparent focus:outline-none focus:ring-accent-600 focus:ring-opacity-50"
           id={label}
           type="checkbox"
         />
