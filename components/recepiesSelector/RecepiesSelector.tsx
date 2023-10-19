@@ -6,6 +6,7 @@ import { useState } from 'react';
 import getCategoriesList from './helpers/getCategoriesList';
 import filterIcon from '../../public/assets/icons/Filters.svg';
 import sortIcon from '../../public/assets/icons/Sort.svg';
+import FiltersPopup from '../filtersPopup/filtersPopup';
 
 export default function RecepiesSelector() {
   const [activeCat, setActiveCat] = useState('all');
@@ -25,10 +26,13 @@ export default function RecepiesSelector() {
           </p>
         </div>
         <div className="mt-4 flex items-center justify-between text-base font-[600] sm:mt-0 sm:w-[144px] ">
-          <button className="flex items-center gap-[10px]">
-            <Image src={filterIcon} alt="" />
-            Filters
-          </button>
+          <div className="relative">
+            <button className="flex items-center gap-[10px]">
+              <Image src={filterIcon} alt="" />
+              Filters
+            </button>
+            <FiltersPopup></FiltersPopup>
+          </div>
           <button className="flex items-center gap-[10px]">
             <Image src={sortIcon} alt="" />
             Sort
