@@ -24,6 +24,13 @@ interface IFiltersProviderProps {
   children: ReactNode;
 }
 
+interface IFiltersProvider extends InitialState {
+  updateCooking: () => void;
+  updateCalories: () => void;
+  updateSpicy: () => void;
+  updateVegan: () => void;
+}
+
 const initialState: InitialState = {
   calories: [0, 0],
   cooking: [0, 0],
@@ -31,7 +38,9 @@ const initialState: InitialState = {
   isSpicy: false,
 };
 
-const FiltersContext = createContext({});
+console.log(initialState);
+
+const FiltersContext = createContext<IFiltersProvider>({} as IFiltersProvider);
 
 function reducer(state: InitialState, action: IAction): InitialState {
   switch (action.type) {
@@ -76,23 +85,25 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
 
   return (
     <FiltersContext.Provider
-      value={{
-        isVegan,
-        isSpicy,
-        calories,
-        cooking,
-        updateCooking,
-        updateCalories,
-        updateSpicy,
-        updateVegan,
-      }}
+      value={
+        {
+          isVegan,
+          isSpicy,
+          calories,
+          cooking,
+          updateCooking,
+          updateCalories,
+          updateSpicy,
+          updateVegan,
+        } as IFiltersProvider
+      }
     >
       {children}
     </FiltersContext.Provider>
   );
 }
 
-export function useFilters() {
+export function useFilters(): IFiltersProvider {
   const context = useContext(FiltersContext);
 
   if (context === undefined) throw new Error('FiltersContext is used outside the FiltersProvider!');
