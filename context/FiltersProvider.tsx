@@ -48,7 +48,7 @@ const initialState: InitialState = {
   cooking: [0, 0],
   isVegan: false,
   isSpicy: false,
-  isOpen: true,
+  isOpen: false,
 };
 
 const FiltersContext = createContext<IFiltersProvider>({} as IFiltersProvider);
