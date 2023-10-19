@@ -1,5 +1,8 @@
 import { createContext, ReactNode, useContext, useReducer } from 'react';
 
+import { recipes } from './RecipeProvider';
+import filterCalories from '../components/filtersPopup/model/filterCalories';
+
 enum FilterActionTypes {
   IS_VEGAN_UPDATED = 'filters/isVeganUpdated',
   IS_SPICY_UPDATED = 'filters/isSpicyUpdated',
@@ -35,6 +38,7 @@ interface IFiltersProvider extends InitialState {
   clearAll: () => void;
   show: () => void;
   hide: () => void;
+  applyFilters: (updateCallback) => void;
 }
 
 const initialState: InitialState = {
@@ -109,6 +113,11 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
     dispatch({ type: FilterActionTypes.CLOSE });
   }
 
+  function applyFilters(updateCallback) {
+    const caloryFilter = filterCalories(calories, recipes);
+    updateCallback(caloryFilter);
+  }
+
   return (
     <FiltersContext.Provider
       value={
@@ -125,6 +134,7 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
           clearAll,
           show,
           hide,
+          applyFilters,
         } as IFiltersProvider
       }
     >

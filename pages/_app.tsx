@@ -2,14 +2,17 @@ import MainLayout from '../components/layouts/mainLayout';
 
 import '../styles/globals.css';
 import FiltersProvider from '../context/FiltersProvider';
+import RecipeProvider from '../context/RecipeProvider';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <FiltersProvider>
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
-    </FiltersProvider>
+    <RecipeProvider>
+      <FiltersProvider>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </FiltersProvider>
+    </RecipeProvider>
   );
 }
 

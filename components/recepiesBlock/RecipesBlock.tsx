@@ -6,8 +6,8 @@ export default function RecepiesBlock() {
 
   return (
     <div className="mt-10 flex flex-col justify-center gap-5 sm:flex-row sm:flex-wrap sm:gap-6">
-      {recipes.map((recipe) => (
-        <RecipeCard recipe={recipe} key={recipe.title} />
+      {recipes.map((recipe, i) => (
+        <RecipeCard recipe={recipe} key={`${recipe.title}-${i}`} />
       ))}
     </div>
   );

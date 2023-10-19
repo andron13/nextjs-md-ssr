@@ -31,10 +31,10 @@ type InitialState = Readonly<{
 }>;
 
 interface IRecipeContextProvider extends InitialState {
-  updateRecipes: () => void;
+  updateRecipes: (newRecipes: IRecipe[]) => void;
 }
 
-const recipes = [
+export const recipes = [
   {
     img: firstPic,
     title: 'Berry cheesecake',
@@ -104,7 +104,7 @@ const initialState: InitialState = {
   recipes,
 } as const;
 
-const RecipeContext = createContext<InitialState>(initialState);
+const RecipeContext = createContext<IRecipeContextProvider>(initialState as IRecipeContextProvider);
 
 function reducer(state: InitialState, action: IAction): InitialState {
   switch (action.type) {

@@ -1,8 +1,10 @@
 import { useFilters } from '../../../context/FiltersProvider';
+import { useRecipes } from '../../../context/RecipeProvider';
 import Button from '../../button';
 
 function Footer() {
-  const { clearAll } = useFilters();
+  const { clearAll, applyFilters } = useFilters();
+  const { updateRecipes } = useRecipes();
 
   return (
     <footer className="flex justify-between border-t border-primary-100 px-5">
@@ -10,7 +12,7 @@ function Footer() {
         <Button onClick={clearAll} type="empty">
           Clear all
         </Button>
-        <Button>Show X recipes</Button>
+        <Button onClick={() => applyFilters(updateRecipes)}>Show X recipes</Button>
       </div>
     </footer>
   );
