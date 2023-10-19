@@ -32,13 +32,13 @@ function FiltersPopup() {
   );
 }
 
-function Toggle({ children }: IOpenProps) {
-  const { isOpen, show, hide } = useFilters();
+function Open({ children }: IOpenProps) {
+  const { show } = useFilters();
 
-  return cloneElement(children, { onClick: isOpen ? hide : show });
+  return cloneElement(children, { onClick: show });
 }
 
-Filters.Toggle = Toggle;
+Filters.Open = Open;
 Filters.Popup = FiltersPopup;
 
 export default Filters;

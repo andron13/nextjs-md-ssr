@@ -29,12 +29,12 @@ export default function RecepiesSelector() {
         <div className="mt-4 flex items-center justify-between gap-6 text-base font-[600] sm:mt-0">
           <div className="relative">
             <Filters>
-              <Filters.Toggle>
+              <Filters.Open>
                 <Button type="empty" className="flex items-center gap-[10px]">
                   <Image src={filterIcon} alt="" />
                   Filters
                 </Button>
-              </Filters.Toggle>
+              </Filters.Open>
 
               <Filters.Popup />
             </Filters>
