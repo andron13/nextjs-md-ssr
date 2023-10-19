@@ -1,15 +1,10 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
+import { IRecipe } from '../../../context/RecipeProvider';
 import cookingIcon from '../../../public/assets/icons/Cooking_time.svg';
 
 type propsType = {
-  recipe: {
-    img: StaticImageData;
-    title: string;
-    category: string;
-    cookTime: string;
-    calories: string;
-  };
+  recipe: IRecipe;
 };
 
 export default function RecipeCard(props: propsType) {
