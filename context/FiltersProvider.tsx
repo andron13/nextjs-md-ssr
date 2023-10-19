@@ -25,8 +25,8 @@ interface IFiltersProviderProps {
 }
 
 interface IFiltersProvider extends InitialState {
-  updateCooking: () => void;
-  updateCalories: () => void;
+  updateCooking: (min: number, max: number) => void;
+  updateCalories: (min: number, max: number) => void;
   updateSpicy: () => void;
   updateVegan: () => void;
 }
@@ -37,8 +37,6 @@ const initialState: InitialState = {
   isVegan: false,
   isSpicy: false,
 };
-
-console.log(initialState);
 
 const FiltersContext = createContext<IFiltersProvider>({} as IFiltersProvider);
 

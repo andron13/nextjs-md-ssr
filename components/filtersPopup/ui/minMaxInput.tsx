@@ -2,14 +2,19 @@ import Input from '../../input/input';
 
 interface IMinMaxInputProps {
   text: string;
+  onUpdate: (min: number, max: number) => void;
+  values: [number, number];
 }
 
-function MinMaxInput({ text }: IMinMaxInputProps) {
+function MinMaxInput({ text, onUpdate, values }: IMinMaxInputProps) {
+  const [min, max] = values;
+
   return (
     <div className="py-6">
       <span className="text-black">{text}</span>
       <div className="mt-5 flex items-center gap-2">
-        <Input type="number" placeholder="Min" /> — <Input type="number" placeholder="Max" />
+        <Input onChange={(min) => onUpdate(min, max)} type="number" placeholder="Min" val={min} /> —{' '}
+        <Input onChange={(max) => onUpdate(min, max)} type="number" placeholder="Max" val={max} />
       </div>
     </div>
   );
