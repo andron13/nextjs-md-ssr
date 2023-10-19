@@ -6,6 +6,8 @@ enum FilterActionTypes {
   CALORIES_UPDATED = 'filters/caloriesUpdated',
   COOKING_UPDATED = 'filters/cookingUpdated',
   CLEAR_ALL = 'filters/clearAll',
+  OPEN = 'filters/open',
+  CLOSE = 'filters/close',
 }
 
 type InitialState = Readonly<{
@@ -13,6 +15,7 @@ type InitialState = Readonly<{
   isSpicy: boolean;
   calories: [number, number];
   cooking: [number, number];
+  isOpen: boolean;
 }>;
 
 interface IAction {
@@ -30,6 +33,8 @@ interface IFiltersProvider extends InitialState {
   updateSpicy: (isSpicy: boolean) => void;
   updateVegan: (isVegan: boolean) => void;
   clearAll: () => void;
+  show: () => void;
+  hide: () => void;
 }
 
 const initialState: InitialState = {
@@ -37,6 +42,7 @@ const initialState: InitialState = {
   cooking: [0, 0],
   isVegan: false,
   isSpicy: false,
+  isOpen: true,
 };
 
 const FiltersContext = createContext<IFiltersProvider>({} as IFiltersProvider);
@@ -55,6 +61,12 @@ function reducer(state: InitialState, action: IAction): InitialState {
     case FilterActionTypes.COOKING_UPDATED:
       return { ...state, cooking: action.payload };
 
+    case FilterActionTypes.OPEN:
+      return { ...state, isOpen: true };
+
+    case FilterActionTypes.CLOSE:
+      return { ...state, isOpen: false };
+
     case FilterActionTypes.CLEAR_ALL:
       return initialState;
 
@@ -64,7 +76,10 @@ function reducer(state: InitialState, action: IAction): InitialState {
 }
 
 function FiltersProvider({ children }: IFiltersProviderProps) {
-  const [{ isVegan, isSpicy, calories, cooking }, dispatch] = useReducer(reducer, initialState);
+  const [{ isVegan, isSpicy, calories, cooking, isOpen }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   function updateCooking(min: number, max: number) {
     return dispatch({ type: FilterActionTypes.COOKING_UPDATED, payload: [min, max] });
@@ -86,6 +101,14 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
     dispatch({ type: FilterActionTypes.CLEAR_ALL });
   }
 
+  function show() {
+    dispatch({ type: FilterActionTypes.OPEN });
+  }
+
+  function hide() {
+    dispatch({ type: FilterActionTypes.CLOSE });
+  }
+
   return (
     <FiltersContext.Provider
       value={
@@ -94,11 +117,14 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
           isSpicy,
           calories,
           cooking,
+          isOpen,
           updateCooking,
           updateCalories,
           updateSpicy,
           updateVegan,
           clearAll,
+          show,
+          hide,
         } as IFiltersProvider
       }
     >
