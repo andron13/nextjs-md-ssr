@@ -1,4 +1,12 @@
-import { createContext, ReactNode, useCallback, useContext, useReducer } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+} from 'react';
 
 import { IRecipe } from './RecipeProvider';
 import filterEssentials from '../components/filtersPopup/model/filterEssentials';
@@ -13,6 +21,7 @@ enum FilterActionTypes {
   CLEAR_ALL = 'filters/clearAll',
   OPEN = 'filters/open',
   CLOSE = 'filters/close',
+  MATCHED_RECIPE_NUM_UPDATED = 'filters/matchedRecipeNumUpdated',
 }
 
 type InitialState = Readonly<{
@@ -21,6 +30,7 @@ type InitialState = Readonly<{
   calories: [number, number];
   cooking: [number, number];
   isOpen: boolean;
+  matchedRecipeNum: number;
 }>;
 
 interface IAction {
@@ -49,6 +59,7 @@ const initialState: InitialState = {
   isVegan: false,
   isSpicy: false,
   isOpen: false,
+  matchedRecipeNum: recipes.length,
 };
 
 const FiltersContext = createContext<IFiltersProvider>({} as IFiltersProvider);
@@ -76,16 +87,20 @@ function reducer(state: InitialState, action: IAction): InitialState {
     case FilterActionTypes.CLEAR_ALL:
       return initialState;
 
+    case FilterActionTypes.MATCHED_RECIPE_NUM_UPDATED:
+      return { ...state, matchedRecipeNum: action.payload };
+
     default:
       throw new Error('Unknown filter action!');
   }
 }
 
 function FiltersProvider({ children }: IFiltersProviderProps) {
-  const [{ isVegan, isSpicy, calories, cooking, isOpen }, dispatch] = useReducer(
+  const [{ isVegan, isSpicy, calories, cooking, isOpen, matchedRecipeNum }, dispatch] = useReducer(
     reducer,
     initialState
   );
+  const applyedFilters = useRef<IRecipe[]>(recipes);
 
   const updateCooking = useCallback(
     (min: number, max: number) =>
@@ -127,16 +142,19 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
     dispatch({ type: FilterActionTypes.CLOSE });
   }, []);
 
-  const applyFilters = useCallback(
-    (updateCallback: (newRecipes: IRecipe[]) => void) => {
-      const caloryFilter = filterRange(calories, recipes, 'calories');
-      const cookingTimeFilter = filterRange(cooking, caloryFilter, 'cookTime');
-      const isVeganFilter = filterEssentials(isVegan, cookingTimeFilter, 'isVegan');
-      const isSpicyFilter = filterEssentials(isSpicy, isVeganFilter, 'isSpicy');
-      updateCallback(isSpicyFilter);
-    },
-    [calories, cooking, isSpicy, isVegan]
-  );
+  const applyFilters = useCallback((updateCallback: (newRecipes: IRecipe[]) => void) => {
+    updateCallback(applyedFilters.current);
+  }, []);
+
+  useEffect(() => {
+    const caloryFilter = filterRange(calories, recipes, 'calories');
+    const cookingTimeFilter = filterRange(cooking, caloryFilter, 'cookTime');
+    const isVeganFilter = filterEssentials(isVegan, cookingTimeFilter, 'isVegan');
+    const isSpicyFilter = filterEssentials(isSpicy, isVeganFilter, 'isSpicy');
+
+    applyedFilters.current = isSpicyFilter;
+    dispatch({ type: FilterActionTypes.MATCHED_RECIPE_NUM_UPDATED, payload: isSpicyFilter.length });
+  }, [calories, cooking, isSpicy, isVegan]);
 
   return (
     <FiltersContext.Provider
@@ -155,6 +173,7 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
           show,
           hide,
           applyFilters,
+          matchedRecipeNum,
         } as IFiltersProvider
       }
     >
