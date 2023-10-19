@@ -1,7 +1,17 @@
+import { cloneElement, ReactElement } from 'react';
+
 import Footer from './ui/footer';
 import Header from './ui/header';
 import Main from './ui/main';
 import { useFilters } from '../../context/FiltersProvider';
+
+interface IOpenProps {
+  children: ReactElement;
+}
+
+function Filters({ children }) {
+  return children;
+}
 
 function FiltersPopup() {
   const { isOpen } = useFilters();
@@ -17,4 +27,13 @@ function FiltersPopup() {
   );
 }
 
-export default FiltersPopup;
+function Toggle({ children }: IOpenProps) {
+  const { isOpen, show, hide } = useFilters();
+
+  return cloneElement(children, { onClick: isOpen ? hide : show });
+}
+
+Filters.Toggle = Toggle;
+Filters.Popup = FiltersPopup;
+
+export default Filters;

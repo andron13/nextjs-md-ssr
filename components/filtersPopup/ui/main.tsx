@@ -4,7 +4,7 @@ import Essentials from './essentials';
 
 function Main() {
   return (
-    <main className="max-h-60 overflow-y-scroll p-6">
+    <main className="max-h-72 overflow-y-scroll p-6">
       <Essentials />
       <CaloriesRange />
       <CookingRange />

@@ -6,7 +6,8 @@ import { useState } from 'react';
 import getCategoriesList from './helpers/getCategoriesList';
 import filterIcon from '../../public/assets/icons/Filters.svg';
 import sortIcon from '../../public/assets/icons/Sort.svg';
-import FiltersPopup from '../filtersPopup/filtersPopup';
+import Button from '../button';
+import Filters from '../filtersPopup/filtersPopup';
 
 export default function RecepiesSelector() {
   const [activeCat, setActiveCat] = useState('all');
@@ -25,13 +26,18 @@ export default function RecepiesSelector() {
             {recipesNumb} recipes
           </p>
         </div>
-        <div className="mt-4 flex items-center justify-between text-base font-[600] sm:mt-0 sm:w-[144px] ">
+        <div className="mt-4 flex items-center justify-between gap-6 text-base font-[600] sm:mt-0">
           <div className="relative">
-            <button className="flex items-center gap-[10px]">
-              <Image src={filterIcon} alt="" />
-              Filters
-            </button>
-            <FiltersPopup></FiltersPopup>
+            <Filters>
+              <Filters.Toggle>
+                <Button type="empty" className="flex items-center gap-[10px]">
+                  <Image src={filterIcon} alt="" />
+                  Filters
+                </Button>
+              </Filters.Toggle>
+
+              <Filters.Popup />
+            </Filters>
           </div>
           <button className="flex items-center gap-[10px]">
             <Image src={sortIcon} alt="" />
