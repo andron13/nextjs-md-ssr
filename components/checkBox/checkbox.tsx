@@ -20,9 +20,11 @@ const Checkbox = memo(function Checkbox({
   return (
     <label
       htmlFor={label}
-      className={`${className} font-base flex items-center gap-5 text-accent-secondary-700`}
+      className={`${
+        className ? className : ''
+      } font-base flex items-center gap-5 text-accent-secondary-700`}
     >
-      <div className="relative">
+      <div className="relative h-6">
         {checked && (
           <Image
             className={`absolute left-0 right-0 m-auto translate-y-1/2`}

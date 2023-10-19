@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useContext, useReducer } from 'react';
 
-import { recipes } from './RecipeProvider';
-import filterCalories from '../components/filtersPopup/model/filterCalories';
+import { IRecipe, recipes } from './RecipeProvider';
+import filterEssentials from '../components/filtersPopup/model/filterEssentials';
+import filterRange from '../components/filtersPopup/model/filterRange';
 
 enum FilterActionTypes {
   IS_VEGAN_UPDATED = 'filters/isVeganUpdated',
@@ -38,7 +39,7 @@ interface IFiltersProvider extends InitialState {
   clearAll: () => void;
   show: () => void;
   hide: () => void;
-  applyFilters: (updateCallback) => void;
+  applyFilters: (updateCallback: (newRecipes: IRecipe[]) => void) => void;
 }
 
 const initialState: InitialState = {
@@ -113,9 +114,12 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
     dispatch({ type: FilterActionTypes.CLOSE });
   }
 
-  function applyFilters(updateCallback) {
-    const caloryFilter = filterCalories(calories, recipes);
-    updateCallback(caloryFilter);
+  function applyFilters(updateCallback: (newRecipes: IRecipe[]) => void) {
+    const caloryFilter = filterRange(calories, recipes, 'calories');
+    const cookingTimeFilter = filterRange(cooking, caloryFilter, 'cookTime');
+    const isVeganFilter = filterEssentials(isVegan, cookingTimeFilter, 'isVegan');
+    const isSpicyFilter = filterEssentials(isSpicy, isVeganFilter, 'isSpicy');
+    updateCallback(isSpicyFilter);
   }
 
   return (

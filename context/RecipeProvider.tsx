@@ -34,6 +34,8 @@ interface IRecipeContextProvider extends InitialState {
   updateRecipes: (newRecipes: IRecipe[]) => void;
 }
 
+export type RecipeKeys = keyof (typeof recipes)[0];
+
 export const recipes = [
   {
     img: firstPic,
@@ -41,6 +43,8 @@ export const recipes = [
     category: 'Desserts',
     cookTime: '45',
     calories: '780',
+    isVegan: true,
+    isSpicy: false,
   },
   {
     img: secondPic,
@@ -48,6 +52,8 @@ export const recipes = [
     category: 'Dinners',
     cookTime: '30',
     calories: '1200',
+    isVegan: false,
+    isSpicy: true,
   },
   {
     img: thirdPic,
@@ -55,6 +61,8 @@ export const recipes = [
     category: 'Dinners',
     cookTime: '90',
     calories: '780',
+    isVegan: false,
+    isSpicy: false,
   },
   {
     img: firstPic,
@@ -62,6 +70,8 @@ export const recipes = [
     category: 'Desserts',
     cookTime: '45',
     calories: '780',
+    isVegan: true,
+    isSpicy: true,
   },
   {
     img: secondPic,
@@ -69,6 +79,8 @@ export const recipes = [
     category: 'Dinners',
     cookTime: '30',
     calories: '1200',
+    isVegan: false,
+    isSpicy: true,
   },
   {
     img: thirdPic,
@@ -76,6 +88,8 @@ export const recipes = [
     category: 'Dinners',
     cookTime: '90',
     calories: '780',
+    isVegan: false,
+    isSpicy: false,
   },
   {
     img: firstPic,
@@ -83,6 +97,8 @@ export const recipes = [
     category: 'Desserts',
     cookTime: '45',
     calories: '780',
+    isVegan: true,
+    isSpicy: false,
   },
   {
     img: secondPic,
@@ -90,6 +106,8 @@ export const recipes = [
     category: 'Dinners',
     cookTime: '30',
     calories: '1200',
+    isVegan: false,
+    isSpicy: true,
   },
   {
     img: thirdPic,
@@ -97,6 +115,8 @@ export const recipes = [
     category: 'Dinners',
     cookTime: '90',
     calories: '780',
+    isVegan: false,
+    isSpicy: false,
   },
 ];
 
