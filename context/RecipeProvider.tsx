@@ -1,9 +1,7 @@
 import { StaticImageData } from 'next/image';
-import { createContext, ReactNode, useContext, useReducer } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useMemo, useReducer } from 'react';
 
-import firstPic from '../public/assets/img/food_1.jpg';
-import secondPic from '../public/assets/img/food_2.jpg';
-import thirdPic from '../public/assets/img/food_3.jpg';
+import { recipes } from '../constants/testContent';
 
 enum RecipeActionTypes {
   RECIPES_UPDATED = 'recipes/recipesUpdated',
@@ -36,97 +34,13 @@ interface IRecipeContextProvider extends InitialState {
 
 export type RecipeKeys = keyof (typeof recipes)[0];
 
-export const recipes = [
-  {
-    img: firstPic,
-    title: 'Berry cheesecake',
-    category: 'Desserts',
-    cookTime: '45',
-    calories: '780',
-    isVegan: true,
-    isSpicy: false,
-  },
-  {
-    img: secondPic,
-    title: 'Pizza neopolitano',
-    category: 'Dinners',
-    cookTime: '30',
-    calories: '1200',
-    isVegan: false,
-    isSpicy: true,
-  },
-  {
-    img: thirdPic,
-    title: 'Shashlyk',
-    category: 'Dinners',
-    cookTime: '90',
-    calories: '780',
-    isVegan: false,
-    isSpicy: false,
-  },
-  {
-    img: firstPic,
-    title: 'Berry cheesecake',
-    category: 'Desserts',
-    cookTime: '45',
-    calories: '780',
-    isVegan: true,
-    isSpicy: true,
-  },
-  {
-    img: secondPic,
-    title: 'Pizza neopolitano',
-    category: 'Dinners',
-    cookTime: '30',
-    calories: '1200',
-    isVegan: false,
-    isSpicy: true,
-  },
-  {
-    img: thirdPic,
-    title: 'Shashlyk',
-    category: 'Dinners',
-    cookTime: '90',
-    calories: '780',
-    isVegan: false,
-    isSpicy: false,
-  },
-  {
-    img: firstPic,
-    title: 'Berry cheesecake',
-    category: 'Desserts',
-    cookTime: '45',
-    calories: '780',
-    isVegan: true,
-    isSpicy: false,
-  },
-  {
-    img: secondPic,
-    title: 'Pizza neopolitano',
-    category: 'Dinners',
-    cookTime: '30',
-    calories: '1200',
-    isVegan: false,
-    isSpicy: true,
-  },
-  {
-    img: thirdPic,
-    title: 'Shashlyk',
-    category: 'Dinners',
-    cookTime: '90',
-    calories: '780',
-    isVegan: false,
-    isSpicy: false,
-  },
-];
-
 const initialState: InitialState = {
   recipes,
 } as const;
 
 const RecipeContext = createContext<IRecipeContextProvider>(initialState as IRecipeContextProvider);
 
-function reducer(state: InitialState, action: IAction): InitialState {
+function reducer(_state: InitialState, action: IAction): InitialState {
   switch (action.type) {
     case RecipeActionTypes.RECIPES_UPDATED:
       return { recipes: action.payload };
@@ -139,22 +53,25 @@ function reducer(state: InitialState, action: IAction): InitialState {
 function RecipeProvider({ children }: IRecipeProviderProps) {
   const [{ recipes }, dispatch] = useReducer(reducer, initialState);
 
-  function updateRecipes(newRecipes: IRecipe[]) {
-    return dispatch({ type: RecipeActionTypes.RECIPES_UPDATED, payload: newRecipes });
-  }
-
-  return (
-    <RecipeContext.Provider
-      value={
-        {
-          recipes,
-          updateRecipes,
-        } as IRecipeContextProvider
-      }
-    >
-      {children}
-    </RecipeContext.Provider>
+  const updateRecipes = useCallback(
+    (newRecipes: IRecipe[]) =>
+      dispatch({
+        type: RecipeActionTypes.RECIPES_UPDATED,
+        payload: newRecipes,
+      }),
+    []
   );
+
+  const contextValue = useMemo(
+    () =>
+      ({
+        recipes,
+        updateRecipes,
+      }) as IRecipeContextProvider,
+    [recipes, updateRecipes]
+  );
+
+  return <RecipeContext.Provider value={contextValue}>{children}</RecipeContext.Provider>;
 }
 
 export function useRecipes() {

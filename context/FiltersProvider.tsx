@@ -1,8 +1,9 @@
-import { createContext, ReactNode, useContext, useReducer } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useReducer } from 'react';
 
-import { IRecipe, recipes } from './RecipeProvider';
+import { IRecipe } from './RecipeProvider';
 import filterEssentials from '../components/filtersPopup/model/filterEssentials';
 import filterRange from '../components/filtersPopup/model/filterRange';
+import { recipes } from '../constants/testContent';
 
 enum FilterActionTypes {
   IS_VEGAN_UPDATED = 'filters/isVeganUpdated',
@@ -86,41 +87,56 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
     initialState
   );
 
-  function updateCooking(min: number, max: number) {
-    return dispatch({ type: FilterActionTypes.COOKING_UPDATED, payload: [min, max] });
-  }
+  const updateCooking = useCallback(
+    (min: number, max: number) =>
+      dispatch({
+        type: FilterActionTypes.COOKING_UPDATED,
+        payload: [min, max],
+      }),
+    []
+  );
 
-  function updateCalories(min: number, max: number) {
-    return dispatch({ type: FilterActionTypes.CALORIES_UPDATED, payload: [min, max] });
-  }
+  const updateCalories = useCallback(
+    (min: number, max: number) =>
+      dispatch({
+        type: FilterActionTypes.CALORIES_UPDATED,
+        payload: [min, max],
+      }),
+    []
+  );
 
-  function updateSpicy(isSpicy: boolean) {
-    return dispatch({ type: FilterActionTypes.IS_SPICY_UPDATED, payload: isSpicy });
-  }
+  const updateSpicy = useCallback(
+    (isSpicy: boolean) => dispatch({ type: FilterActionTypes.IS_SPICY_UPDATED, payload: isSpicy }),
+    []
+  );
 
-  function updateVegan(isVegan: boolean) {
-    return dispatch({ type: FilterActionTypes.IS_VEGAN_UPDATED, payload: isVegan });
-  }
+  const updateVegan = useCallback(
+    (isVegan: boolean) => dispatch({ type: FilterActionTypes.IS_VEGAN_UPDATED, payload: isVegan }),
+    []
+  );
 
-  function clearAll() {
+  const clearAll = useCallback(() => {
     dispatch({ type: FilterActionTypes.CLEAR_ALL });
-  }
+  }, []);
 
-  function show() {
+  const show = useCallback(() => {
     dispatch({ type: FilterActionTypes.OPEN });
-  }
+  }, []);
 
-  function hide() {
+  const hide = useCallback(() => {
     dispatch({ type: FilterActionTypes.CLOSE });
-  }
+  }, []);
 
-  function applyFilters(updateCallback: (newRecipes: IRecipe[]) => void) {
-    const caloryFilter = filterRange(calories, recipes, 'calories');
-    const cookingTimeFilter = filterRange(cooking, caloryFilter, 'cookTime');
-    const isVeganFilter = filterEssentials(isVegan, cookingTimeFilter, 'isVegan');
-    const isSpicyFilter = filterEssentials(isSpicy, isVeganFilter, 'isSpicy');
-    updateCallback(isSpicyFilter);
-  }
+  const applyFilters = useCallback(
+    (updateCallback: (newRecipes: IRecipe[]) => void) => {
+      const caloryFilter = filterRange(calories, recipes, 'calories');
+      const cookingTimeFilter = filterRange(cooking, caloryFilter, 'cookTime');
+      const isVeganFilter = filterEssentials(isVegan, cookingTimeFilter, 'isVegan');
+      const isSpicyFilter = filterEssentials(isSpicy, isVeganFilter, 'isSpicy');
+      updateCallback(isSpicyFilter);
+    },
+    [calories, cooking, isSpicy, isVegan]
+  );
 
   return (
     <FiltersContext.Provider
