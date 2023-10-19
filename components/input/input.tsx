@@ -21,6 +21,8 @@ const Input = memo(function Input({
 }: IInputProps) {
   const [value, setValue] = useState(val ?? 0);
 
+  const inputVal = val ?? value;
+
   function handleChange(e: ChangeEvent) {
     const num = Number((e.target as HTMLInputElement).value);
 
@@ -34,7 +36,7 @@ const Input = memo(function Input({
       placeholder={placeholder}
       className={`h-10 w-full rounded-[9px] border border-primary-400 px-[10px] py-[9px] transition-all placeholder:text-accent-secondary-400 focus:border-transparent focus:outline-none focus:ring focus:ring-accent-600 focus:ring-opacity-50 ${className}`}
       type={type}
-      value={value === 0 ? '' : value}
+      value={inputVal || ''}
       onChange={handleChange}
     />
   );

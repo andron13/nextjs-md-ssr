@@ -17,7 +17,7 @@ type InitialState = Readonly<{
 
 interface IAction {
   type: FilterActionTypes;
-  payload: any;
+  payload?: any;
 }
 
 interface IFiltersProviderProps {
@@ -27,8 +27,9 @@ interface IFiltersProviderProps {
 interface IFiltersProvider extends InitialState {
   updateCooking: (min: number, max: number) => void;
   updateCalories: (min: number, max: number) => void;
-  updateSpicy: () => void;
-  updateVegan: () => void;
+  updateSpicy: (isSpicy: boolean) => void;
+  updateVegan: (isVegan: boolean) => void;
+  clearAll: () => void;
 }
 
 const initialState: InitialState = {
@@ -65,11 +66,11 @@ function reducer(state: InitialState, action: IAction): InitialState {
 function FiltersProvider({ children }: IFiltersProviderProps) {
   const [{ isVegan, isSpicy, calories, cooking }, dispatch] = useReducer(reducer, initialState);
 
-  function updateCooking(min = 0, max = 0) {
+  function updateCooking(min: number, max: number) {
     return dispatch({ type: FilterActionTypes.COOKING_UPDATED, payload: [min, max] });
   }
 
-  function updateCalories(min = 0, max = 0) {
+  function updateCalories(min: number, max: number) {
     return dispatch({ type: FilterActionTypes.CALORIES_UPDATED, payload: [min, max] });
   }
 
@@ -79,6 +80,10 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
 
   function updateVegan(isVegan: boolean) {
     return dispatch({ type: FilterActionTypes.IS_VEGAN_UPDATED, payload: isVegan });
+  }
+
+  function clearAll() {
+    dispatch({ type: FilterActionTypes.CLEAR_ALL });
   }
 
   return (
@@ -93,6 +98,7 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
           updateCalories,
           updateSpicy,
           updateVegan,
+          clearAll,
         } as IFiltersProvider
       }
     >

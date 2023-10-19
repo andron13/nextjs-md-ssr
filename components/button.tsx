@@ -8,12 +8,23 @@ const buttonTypes = {
 interface IButtonProps {
   children: ReactNode;
   type?: keyof typeof buttonTypes;
+  onClick?: () => void;
+  className?: string;
 }
 
-const Button = memo(function Button({ children, type = 'filled' }: IButtonProps) {
-  const className = buttonTypes[type];
+const Button = memo(function Button({
+  children,
+  type = 'filled',
+  onClick,
+  className,
+}: IButtonProps) {
+  const classes = `${buttonTypes[type]} ${className ?? ''}`;
 
-  return <button className={className}>{children}</button>;
+  return (
+    <button onClick={onClick} className={classes}>
+      {children}
+    </button>
+  );
 });
 
 export default Button;
