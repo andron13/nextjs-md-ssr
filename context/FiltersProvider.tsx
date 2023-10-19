@@ -5,6 +5,7 @@ enum FilterActionTypes {
   IS_SPICY_UPDATED = 'filters/isSpicyUpdated',
   CALORIES_UPDATED = 'filters/caloriesUpdated',
   COOKING_UPDATED = 'filters/cookingUpdated',
+  CLEAR_ALL = 'filters/clearAll',
 }
 
 type InitialState = Readonly<{
@@ -45,6 +46,9 @@ function reducer(state: InitialState, action: IAction): InitialState {
 
     case FilterActionTypes.COOKING_UPDATED:
       return { ...state, cooking: action.payload };
+
+    case FilterActionTypes.CLEAR_ALL:
+      return initialState;
 
     default:
       throw new Error('Unknown filter action!');
