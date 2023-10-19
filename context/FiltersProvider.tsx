@@ -85,7 +85,7 @@ function reducer(state: InitialState, action: IAction): InitialState {
       return { ...state, isOpen: false };
 
     case FilterActionTypes.CLEAR_ALL:
-      return initialState;
+      return { ...initialState, isOpen: state.isOpen };
 
     case FilterActionTypes.MATCHED_RECIPE_NUM_UPDATED:
       return { ...state, matchedRecipeNum: action.payload };
