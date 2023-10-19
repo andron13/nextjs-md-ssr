@@ -1,12 +1,15 @@
 import MainLayout from '../components/layouts/mainLayout';
 
 import '../styles/globals.css';
+import FiltersProvider from '../context/FiltersProvider';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <MainLayout>
-      <Component {...pageProps} />
-    </MainLayout>
+    <FiltersProvider>
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
+    </FiltersProvider>
   );
 }
 
