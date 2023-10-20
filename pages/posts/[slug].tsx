@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 
 import AdvertisingContentBottom from '../../components/advertising/contentBottom';
@@ -61,29 +62,15 @@ const PostPage = ({ postMetadata, content }: postData) => {
 
   return (
     <PostPageLayout postMetadata={postMetadata}>
-      {/*<header></header>*/}
       <main className="my-2 text-black sm:grid-cols-5">
         <div className="max-w-screen-lg">
           <article lang={language} className="my-1 bg-white text-gray-800 ">
-            {/* <AdvertisingContentBottom />
-            <header>
-              <p>title: {title}</p>
-              <p>subtitle: {subtitle}</p>
-              <p>date: {date}</p>
-              <p>author: {author}</p>
-              <p>category: {category}</p>
-              <p>ingredients: {ingredients}</p>
-              <p>weight: {weight}</p>
-              <p>slug: {slug}</p>
-              <p>taxonomy: {taxonomy}</p>
-              <p>language: {language}</p>
-              <p>img: {imageUrl}</p>
-            </header>
-            <hr /> */}
             <div>
               <div className="relative flex min-h-[280px] w-full flex-col gap-y-6 rounded-none pl-6 pr-24 pt-6 sm:pr-96 sm:pt-12 md:gap-y-8 md:rounded-3xl">
                 <div className="absolute inset-x-0 top-0 z-10 h-full w-full rounded-none bg-black/50 md:rounded-3xl"></div>
-                <img src="/assets/icons/arrowBack.svg" className="relative z-20 h-5 w-4" alt="" />
+                <Link href={'/'}>
+                  <img src="/assets/icons/arrowBack.svg" className="relative z-20 h-5 w-4" alt="" />
+                </Link>
                 <Image
                   src={image}
                   alt={slug}
@@ -117,7 +104,6 @@ const PostPage = ({ postMetadata, content }: postData) => {
           </article>
           <DisqusComments postMetadata={postMetadata} />
         </div>
-        {/* <Aside /> */}
       </main>
     </PostPageLayout>
   );
