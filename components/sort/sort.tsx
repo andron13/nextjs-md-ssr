@@ -11,7 +11,7 @@ import {
 } from 'react';
 
 import applySort from './model/applySort';
-import { useRecipes } from '../../context/RecipeProvider';
+import { RecipeKeys, useRecipes } from '../../context/RecipeProvider';
 import useOutsideClick from '../../hooks/useOutsideClick';
 
 interface SortContextProvider {
@@ -36,7 +36,7 @@ interface IOpenProps {
 
 interface IOptionProps {
   children: string;
-  value: string;
+  value: `${RecipeKeys}-asc` | `${RecipeKeys}-desc`;
 }
 
 const SortContext = createContext<SortContextProvider>({} as SortContextProvider);

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 import getCategoriesList from './helpers/getCategoriesList';
+import { useFilters } from '../../context/FiltersProvider';
 import filterIcon from '../../public/assets/icons/Filters.svg';
 import sortIcon from '../../public/assets/icons/Sort.svg';
 import Button from '../button';
@@ -12,8 +13,7 @@ import Sort from '../sort/sort';
 
 export default function RecepiesSelector() {
   const [activeCat, setActiveCat] = useState('all');
-  const [recipesNumb, setRecipesNumb] = useState(8);
-
+  const { matchedRecipeNum } = useFilters();
   const catList = getCategoriesList({ activeCat, setActiveCat });
 
   return (
@@ -24,7 +24,7 @@ export default function RecepiesSelector() {
             Browse&nbsp;Recepies
           </p>
           <p className="pl-[10px] text-sm font-[600] text-accent-500 sm:text-base">
-            {recipesNumb} recipes
+            {matchedRecipeNum} recipes
           </p>
         </div>
         <div className="mt-4 flex items-center justify-between gap-6 text-base font-[600] sm:mt-0">
@@ -52,8 +52,8 @@ export default function RecepiesSelector() {
             <Sort.Select>
               <Sort.Option value="calories-asc">by calories ⬆️</Sort.Option>
               <Sort.Option value="calories-desc">by calories ⬇️</Sort.Option>
-              <Sort.Option value="cookTime-asc">by cooking time ⬆️</Sort.Option>
-              <Sort.Option value="cookTime-desc">by cooking time ⬇️</Sort.Option>
+              <Sort.Option value="time-asc">by cooking time ⬆️</Sort.Option>
+              <Sort.Option value="time-desc">by cooking time ⬇️</Sort.Option>
             </Sort.Select>
           </Sort>
         </div>

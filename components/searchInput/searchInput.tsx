@@ -3,16 +3,16 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import { usePosts } from '../../context/PostsProvider';
+import { useRecipes } from '../../context/RecipeProvider';
 import searchIcon from '../../public/assets/icons/search.svg';
 
 export default function SearchInput() {
   const [search, setSearch] = useState('');
-  const { posts } = usePosts();
+  const { recipes } = useRecipes();
 
   useEffect(() => {
-    console.log('posts', posts);
-  }, [posts]);
+    console.log('posts', recipes);
+  }, [recipes]);
 
   return (
     <div className="mt-6 w-full px-5 sm:absolute sm:right-[25px] sm:top-[10px] sm:mt-0 sm:w-[280px] sm:px-0">

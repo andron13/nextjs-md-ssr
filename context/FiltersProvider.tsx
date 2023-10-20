@@ -8,10 +8,9 @@ import {
   useRef,
 } from 'react';
 
-import { IRecipe } from './RecipeProvider';
+import { IRecipe, useRecipes } from './RecipeProvider';
 import filterEssentials from '../components/filtersPopup/model/filterEssentials';
 import filterRange from '../components/filtersPopup/model/filterRange';
-import { recipes } from '../constants/testContent';
 
 enum FilterActionTypes {
   IS_VEGAN_UPDATED = 'filters/isVeganUpdated',
@@ -59,7 +58,7 @@ const initialState: InitialState = {
   isVegan: false,
   isSpicy: false,
   isOpen: false,
-  matchedRecipeNum: recipes.length,
+  matchedRecipeNum: 0,
 };
 
 const FiltersContext = createContext<IFiltersProvider>({} as IFiltersProvider);
@@ -100,7 +99,13 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
     reducer,
     initialState
   );
-  const applyedFilters = useRef<IRecipe[]>(recipes);
+  const applyedFilters = useRef<IRecipe[]>([]);
+  const allRecipes = useRef<IRecipe[]>([]);
+  const { recipes } = useRecipes();
+
+  useEffect(() => {
+    if (allRecipes.current.length === 0) allRecipes.current = recipes;
+  }, [recipes]);
 
   const updateCooking = useCallback(
     (min: number, max: number) =>
@@ -147,14 +152,14 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
   }, []);
 
   useEffect(() => {
-    const caloryFilter = filterRange(calories, recipes, 'calories');
-    const cookingTimeFilter = filterRange(cooking, caloryFilter, 'cookTime');
+    const caloryFilter = filterRange(calories, allRecipes.current, 'calories');
+    const cookingTimeFilter = filterRange(cooking, caloryFilter, 'time');
     const isVeganFilter = filterEssentials(isVegan, cookingTimeFilter, 'isVegan');
     const isSpicyFilter = filterEssentials(isSpicy, isVeganFilter, 'isSpicy');
 
     applyedFilters.current = isSpicyFilter;
     dispatch({ type: FilterActionTypes.MATCHED_RECIPE_NUM_UPDATED, payload: isSpicyFilter.length });
-  }, [calories, cooking, isSpicy, isVegan]);
+  }, [calories, cooking, isSpicy, isVegan, recipes]);
 
   return (
     <FiltersContext.Provider

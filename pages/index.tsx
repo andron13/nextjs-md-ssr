@@ -4,7 +4,7 @@ import HomeLayout from '../components/layouts/homeLayout';
 import RecepiesBlock from '../components/recepiesBlock/RecipesBlock';
 import RecepiesSelector from '../components/recepiesSelector/RecepiesSelector';
 import Slider from '../components/slider/Slider';
-import { usePosts } from '../context/PostsProvider';
+import { useRecipes } from '../context/RecipeProvider';
 import { getAllPostsData } from '../service/postHandler';
 
 export async function getStaticProps() {
@@ -17,11 +17,11 @@ export async function getStaticProps() {
 }
 
 const Index = ({ allPostsData }) => {
-  const { updatePosts } = usePosts();
+  const { updateRecipes } = useRecipes();
 
   useEffect(() => {
-    updatePosts(allPostsData);
-  }, [allPostsData, updatePosts]);
+    updateRecipes(allPostsData);
+  }, [allPostsData, updateRecipes]);
 
   return (
     <HomeLayout>

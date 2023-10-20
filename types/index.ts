@@ -20,6 +20,11 @@ export type resultObj = {
   taxonomy: string;
   ingredients: string;
   content?: string;
+  isSpicy: boolean;
+  isVegan: boolean;
+  calories: number;
+  time: number;
+  img: string;
 };
 
 export type postData = {

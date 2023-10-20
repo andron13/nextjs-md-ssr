@@ -1,7 +1,6 @@
-import { StaticImageData } from 'next/image';
 import { createContext, ReactNode, useCallback, useContext, useReducer } from 'react';
 
-import { recipes } from '../constants/testContent';
+import { resultObj } from '../types';
 
 enum RecipeActionTypes {
   RECIPES_UPDATED = 'recipes/recipesUpdated',
@@ -11,13 +10,7 @@ interface IRecipeProviderProps {
   children: ReactNode;
 }
 
-export interface IRecipe {
-  img: StaticImageData;
-  title: string;
-  category: string;
-  cookTime: string;
-  calories: string;
-}
+export type IRecipe = resultObj;
 
 interface IAction {
   type: RecipeActionTypes;
@@ -32,10 +25,10 @@ interface IRecipeContextProvider extends InitialState {
   updateRecipes: (newRecipes: IRecipe[]) => void;
 }
 
-export type RecipeKeys = keyof (typeof recipes)[0];
+export type RecipeKeys = keyof IRecipe;
 
 const initialState: InitialState = {
-  recipes,
+  recipes: [] as IRecipe[],
 } as const;
 
 const RecipeContext = createContext<IRecipeContextProvider>(initialState as IRecipeContextProvider);
