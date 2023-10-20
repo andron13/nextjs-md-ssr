@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import getCategoriesList from './helpers/getCategoriesList';
+import { useRecipes } from '../../context/RecipeProvider';
 import filterIcon from '../../public/assets/icons/Filters.svg';
 import sortIcon from '../../public/assets/icons/Sort.svg';
 import Button from '../button';
@@ -11,7 +12,9 @@ import Filters from '../filtersPopup/filtersPopup';
 
 export default function RecepiesSelector() {
   const [activeCat, setActiveCat] = useState('all');
-  const [recipesNumb, setRecipesNumb] = useState(8);
+  const { recipes } = useRecipes();
+
+  const recipeNum = recipes.length;
 
   const catList = getCategoriesList({ activeCat, setActiveCat });
 
@@ -23,7 +26,7 @@ export default function RecepiesSelector() {
             Browse&nbsp;Recepies
           </p>
           <p className="pl-[10px] text-sm font-[600] text-accent-500 sm:text-base">
-            {recipesNumb} recipes
+            {recipeNum} recipes
           </p>
         </div>
         <div className="mt-4 flex items-center justify-between gap-6 text-base font-[600] sm:mt-0">
