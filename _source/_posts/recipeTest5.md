@@ -1,16 +1,16 @@
 ---
-title: "Сырники из творога"
+title: "Сырники с вишней"
 subtitle: "test recipe"
 date: 2023-01-08
 author: "andron13"
 category: Завтрак
-calories: 10
-time: 2
+calories: 1000
+time: 30
 weight: 23recipeTest.md
 image: "/assets/img/syrniki.jpg"
 description: "Для тех, кто с утра перед работой любит хорошо покушать, посоветую быстрый способ приготовления домашних сырников"
 slug: recipe
-isSpicy: false
+isSpicy: true
 isVegan: true
 ---
 
@@ -27,7 +27,7 @@ isVegan: true
 </div>
 
 <div id="directions" className="hidden">
-1. <div>.<img src="/assets/img/recipeStep.jpeg"/></div>
-2. <div>.<img src="/assets/img/recipeStep.jpeg"/></div>
-3. <div> тестируем поиск 123.<img src="/assets/img/recipeStep.jpeg"/></div>
+1. <div>Смешать все ингредиенты в любом порядке.<img src="/assets/img/recipeStep.jpeg"/></div>
+2. <div>Столовой ложкой выкладываю порционно на сковороду.<img src="/assets/img/recipeStep.jpeg"/></div>
+3. <div> Обжариваю с каждой стороны по 8-10 минут.<img src="/assets/img/recipeStep.jpeg"/></div>
 </div>

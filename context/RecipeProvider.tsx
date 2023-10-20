@@ -1,23 +1,17 @@
-import { StaticImageData } from 'next/image';
-import { createContext, ReactNode, useCallback, useContext, useMemo, useReducer } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useReducer } from 'react';
 
-import { recipes } from '../constants/testContent';
+import { resultObj } from '../types';
 
 enum RecipeActionTypes {
   RECIPES_UPDATED = 'recipes/recipesUpdated',
+  ALL_RECIPES_UPDATED = 'recipes/allRecipesUpdated',
 }
 
 interface IRecipeProviderProps {
   children: ReactNode;
 }
 
-export interface IRecipe {
-  img: StaticImageData;
-  title: string;
-  category: string;
-  cookTime: string;
-  calories: string;
-}
+export type IRecipe = resultObj;
 
 interface IAction {
   type: RecipeActionTypes;
@@ -26,24 +20,30 @@ interface IAction {
 
 type InitialState = Readonly<{
   recipes: IRecipe[];
+  allRecipes: IRecipe[];
 }>;
 
 interface IRecipeContextProvider extends InitialState {
   updateRecipes: (newRecipes: IRecipe[]) => void;
+  updateAllRecipes: (newRecipes: IRecipe[]) => void;
 }
 
-export type RecipeKeys = keyof (typeof recipes)[0];
+export type RecipeKeys = keyof IRecipe;
 
 const initialState: InitialState = {
-  recipes,
+  recipes: [] as IRecipe[],
+  allRecipes: [] as IRecipe[],
 } as const;
 
 const RecipeContext = createContext<IRecipeContextProvider>(initialState as IRecipeContextProvider);
 
-function reducer(_state: InitialState, action: IAction): InitialState {
+function reducer(state: InitialState, action: IAction): InitialState {
   switch (action.type) {
     case RecipeActionTypes.RECIPES_UPDATED:
-      return { recipes: action.payload };
+      return { ...state, recipes: action.payload };
+
+    case RecipeActionTypes.ALL_RECIPES_UPDATED:
+      return { ...state, allRecipes: action.payload };
 
     default:
       throw new Error('Unknown recipe action!');
@@ -51,7 +51,7 @@ function reducer(_state: InitialState, action: IAction): InitialState {
 }
 
 function RecipeProvider({ children }: IRecipeProviderProps) {
-  const [{ recipes }, dispatch] = useReducer(reducer, initialState);
+  const [{ recipes, allRecipes }, dispatch] = useReducer(reducer, initialState);
 
   const updateRecipes = useCallback(
     (newRecipes: IRecipe[]) =>
@@ -62,16 +62,29 @@ function RecipeProvider({ children }: IRecipeProviderProps) {
     []
   );
 
-  const contextValue = useMemo(
-    () =>
-      ({
-        recipes,
-        updateRecipes,
-      }) as IRecipeContextProvider,
-    [recipes, updateRecipes]
+  const updateAllRecipes = useCallback(
+    (newRecipes: IRecipe[]) =>
+      dispatch({
+        type: RecipeActionTypes.ALL_RECIPES_UPDATED,
+        payload: newRecipes,
+      }),
+    []
   );
 
-  return <RecipeContext.Provider value={contextValue}>{children}</RecipeContext.Provider>;
+  return (
+    <RecipeContext.Provider
+      value={
+        {
+          allRecipes,
+          recipes,
+          updateRecipes,
+          updateAllRecipes,
+        } as IRecipeContextProvider
+      }
+    >
+      {children}
+    </RecipeContext.Provider>
+  );
 }
 
 export function useRecipes() {
