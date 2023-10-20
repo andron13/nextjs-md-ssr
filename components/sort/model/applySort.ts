@@ -1,13 +1,6 @@
 import { IRecipe } from '../../../context/RecipeProvider';
 
-const sortValues = {
-  cookTime: 'cookTime',
-  calories: 'calories',
-};
-
-type SortValues = (typeof sortValues)[keyof typeof sortValues];
-
-function applySort(sortVal: SortValues, recipes: IRecipe[]) {
+function applySort(sortVal: string, recipes: IRecipe[]) {
   const [key, order] = sortVal.split('-');
 
   if (order === 'asc') {
