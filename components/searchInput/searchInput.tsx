@@ -1,12 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { usePosts } from '../../context/PostsProvider';
 import searchIcon from '../../public/assets/icons/search.svg';
 
 export default function SearchInput() {
   const [search, setSearch] = useState('');
+  const { posts } = usePosts();
+
+  useEffect(() => {
+    console.log('posts', posts);
+  }, [posts]);
 
   return (
     <div className="mt-6 w-full px-5 sm:absolute sm:right-[25px] sm:top-[10px] sm:mt-0 sm:w-[280px] sm:px-0">
