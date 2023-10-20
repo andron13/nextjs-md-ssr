@@ -8,17 +8,17 @@ import searchIcon from '../../public/assets/icons/search.svg';
 
 export default function SearchInput() {
   const [search, setSearch] = useState('');
-  const { recipes, allRecipes, updateRecipes } = useRecipes();
+  const { allRecipes, updateRecipes } = useRecipes();
 
   useEffect(() => {
     if (search === '') return updateRecipes(allRecipes);
 
-    const searchResult = recipes.filter((recipe) => {
+    const searchResult = allRecipes.filter((recipe) => {
       return recipe.content?.toLowerCase().includes(search.toLowerCase());
     });
 
     updateRecipes(searchResult);
-  }, [search, updateRecipes]);
+  }, [allRecipes, search, updateRecipes]);
 
   return (
     <div className="mt-6 w-full px-5 sm:absolute sm:right-[25px] sm:top-[10px] sm:mt-0 sm:w-[280px] sm:px-0">
