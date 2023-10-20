@@ -1,5 +1,5 @@
 ---
-title: "Сырники из творога"
+title: "Сырники с вишней"
 subtitle: "test recipe"
 date: 2023-01-08
 author: "andron13"
