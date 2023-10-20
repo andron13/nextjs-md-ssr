@@ -1,13 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import getCategoriesList from './helpers/getCategoriesList';
 import filterIcon from '../../public/assets/icons/Filters.svg';
 import sortIcon from '../../public/assets/icons/Sort.svg';
 import Button from '../button';
 import Filters from '../filtersPopup/filtersPopup';
+import Sort from '../sort/sort';
 
 export default function RecepiesSelector() {
   const [activeCat, setActiveCat] = useState('all');
@@ -39,10 +40,22 @@ export default function RecepiesSelector() {
               <Filters.Popup />
             </Filters>
           </div>
-          <button className="flex items-center gap-[10px]">
-            <Image src={sortIcon} alt="" />
-            Sort
-          </button>
+
+          <Sort>
+            <Sort.Open>
+              <Button type="empty" className="flex items-center gap-[10px]">
+                <Image src={sortIcon} alt="" />
+                Sort
+              </Button>
+            </Sort.Open>
+
+            <Sort.Select>
+              <Sort.Option value="calories-asc">by calories ⬆️</Sort.Option>
+              <Sort.Option value="calories-desc">by calories ⬇️</Sort.Option>
+              <Sort.Option value="cookTime-asc">by cooking time ⬆️</Sort.Option>
+              <Sort.Option value="cookTime-desc">by cooking time ⬇️</Sort.Option>
+            </Sort.Select>
+          </Sort>
         </div>
       </div>
       <ul className="mt-10 flex gap-9 overflow-x-scroll pb-2 sm:overflow-x-hidden">{catList}</ul>

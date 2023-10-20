@@ -1,5 +1,5 @@
 import { StaticImageData } from 'next/image';
-import { createContext, ReactNode, useCallback, useContext, useMemo, useReducer } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useReducer } from 'react';
 
 import { recipes } from '../constants/testContent';
 
@@ -62,16 +62,18 @@ function RecipeProvider({ children }: IRecipeProviderProps) {
     []
   );
 
-  const contextValue = useMemo(
-    () =>
-      ({
-        recipes,
-        updateRecipes,
-      }) as IRecipeContextProvider,
-    [recipes, updateRecipes]
+  return (
+    <RecipeContext.Provider
+      value={
+        {
+          recipes,
+          updateRecipes,
+        } as IRecipeContextProvider
+      }
+    >
+      {children}
+    </RecipeContext.Provider>
   );
-
-  return <RecipeContext.Provider value={contextValue}>{children}</RecipeContext.Provider>;
 }
 
 export function useRecipes() {
