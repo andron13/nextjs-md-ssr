@@ -94,7 +94,7 @@ function Select({ children }: ISelectProps) {
     <select
       value={selectVal}
       onChange={handleApplySort}
-      className="absolute mt-4 rounded-xl border border-black-100 px-4 py-3 shadow-xl focus:border-transparent focus:outline-none focus:ring focus:ring-accent-600 focus:ring-opacity-50"
+      className="absolute -left-full mt-4 -translate-x-5 rounded-xl border border-black-100 px-4 py-3 shadow-xl focus:border-transparent focus:outline-none focus:ring focus:ring-accent-600 focus:ring-opacity-50"
       ref={ref}
       name="sort"
       id="sort"
