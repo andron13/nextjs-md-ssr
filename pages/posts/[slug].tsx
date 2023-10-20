@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 
 import AdvertisingContentBottom from '../../components/advertising/contentBottom';
@@ -6,43 +7,55 @@ import DisqusComments from '../../components/disqusComments/disqusComments';
 import PostPageLayout from '../../components/layouts/postPageLayout';
 import { MdToHtml } from '../../components/markdown';
 import { getPostData } from '../../service/postHandler';
-import Image from 'next/image';
 import postMetadata, { getAllPostSlugs } from '../../service/postMetadata';
 import { resultObj, postData } from '../../types';
 
 const PostPage = ({ postMetadata, content }: postData) => {
-  const { title, subtitle, date, author, language, category, taxonomy, ingredients, weight, slug, description, image, calories, time } =
-    postMetadata;
-  const ingridientsDiv = useRef<HTMLDivElement | null>(null)
-  const directionsDiv = useRef<HTMLDivElement | null>(null)
-  const ingridientsBtn= useRef<HTMLButtonElement | null>(null)
-  const directionsBtn= useRef<HTMLButtonElement | null>(null)
-
+  const {
+    title,
+    subtitle,
+    date,
+    author,
+    language,
+    category,
+    taxonomy,
+    ingredients,
+    weight,
+    slug,
+    description,
+    image,
+    calories,
+    time,
+  } = postMetadata;
+  const ingridientsDiv = useRef<HTMLDivElement | null>(null);
+  const directionsDiv = useRef<HTMLDivElement | null>(null);
+  const ingridientsBtn = useRef<HTMLButtonElement | null>(null);
+  const directionsBtn = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    ingridientsDiv.current = document.getElementById("ingridients") as HTMLDivElement;
-    directionsDiv.current = document.getElementById("directions") as HTMLDivElement;
-    ingridientsBtn.current = document.getElementById("ingridients_btn") as HTMLButtonElement;
-    directionsBtn.current = document.getElementById("directions_btn") as HTMLButtonElement;
+    ingridientsDiv.current = document.getElementById('ingridients') as HTMLDivElement;
+    directionsDiv.current = document.getElementById('directions') as HTMLDivElement;
+    ingridientsBtn.current = document.getElementById('ingridients_btn') as HTMLButtonElement;
+    directionsBtn.current = document.getElementById('directions_btn') as HTMLButtonElement;
   }, []);
 
   function handleClick(e) {
-    if (e.target.id === "ingridients_btn") {
-      e.target.classList.add("active");
-      directionsBtn.current?.classList.remove("active");
-      ingridientsDiv.current?.classList.add("block");
-      ingridientsDiv.current?.classList.remove("hidden");
-      directionsDiv.current?.classList.remove("block");
-      directionsDiv.current?.classList.add("hidden");
+    if (e.target.id === 'ingridients_btn') {
+      e.target.classList.add('active');
+      directionsBtn.current?.classList.remove('active');
+      ingridientsDiv.current?.classList.add('block');
+      ingridientsDiv.current?.classList.remove('hidden');
+      directionsDiv.current?.classList.remove('block');
+      directionsDiv.current?.classList.add('hidden');
     }
 
-    if (e.target.id === "directions_btn") {
-      e.target.classList.add("active");
-      ingridientsBtn.current?.classList.remove("active");
-      directionsDiv.current?.classList.add("block");
-      directionsDiv.current?.classList.remove("hidden");
-      ingridientsDiv.current?.classList.remove("block");
-      ingridientsDiv.current?.classList.add("hidden");
+    if (e.target.id === 'directions_btn') {
+      e.target.classList.add('active');
+      ingridientsBtn.current?.classList.remove('active');
+      directionsDiv.current?.classList.add('block');
+      directionsDiv.current?.classList.remove('hidden');
+      ingridientsDiv.current?.classList.remove('block');
+      ingridientsDiv.current?.classList.add('hidden');
     }
   }
 
@@ -68,32 +81,38 @@ const PostPage = ({ postMetadata, content }: postData) => {
             </header>
             <hr /> */}
             <div>
-              <div className="min-h-[280px] w-full relative pl-6 pt-6 pr-24 md:rounded-3xl rounded-none sm:pr-96 sm:pt-12 flex flex-col gap-y-6 md:gap-y-8">
-                <div className="w-full h-full absolute inset-x-0 top-0 bg-black/50 z-10 md:rounded-3xl rounded-none"></div>
-                  <img src="/assets/icons/arrowBack.svg" className="relative z-20 w-4 h-5" alt="" />
-                  <Image src={image} alt={slug} fill objectFit='cover' className='md:rounded-3xl rounded-none'/>
+              <div className="relative flex min-h-[280px] w-full flex-col gap-y-6 rounded-none pl-6 pr-24 pt-6 sm:pr-96 sm:pt-12 md:gap-y-8 md:rounded-3xl">
+                <div className="absolute inset-x-0 top-0 z-10 h-full w-full rounded-none bg-black/50 md:rounded-3xl"></div>
+                <img src="/assets/icons/arrowBack.svg" className="relative z-20 h-5 w-4" alt="" />
+                <Image
+                  src={image}
+                  alt={slug}
+                  fill
+                  objectFit="cover"
+                  className="rounded-none md:rounded-3xl"
+                />
+                <div>
+                  <h1 className="relative z-20 mb-0 text-2xl text-white">{title}</h1>
+                  <p className="relative z-20 text-xs text-white/80">{description}</p>
+                </div>
+                <div className="relative z-20 flex max-w-[300px] justify-between text-white">
                   <div>
-                    <h1 className="relative z-20 text-white text-2xl mb-0">{title}</h1>
-                    <p className="relative z-20 text-white/80 text-xs">{description}</p>
+                    <h6 className="text-xs text-white/80">Калории</h6>
+                    <p className="text-xs text-white/80">{calories}</p>
                   </div>
-                  <div className="relative z-20 text-white flex justify-between max-w-[300px]">
-                    <div>
-                      <h6 className="text-xs text-white/80">Калории</h6>
-                      <p className="text-xs text-white/80">{calories}</p>
-                    </div>
-                    <div>
-                      <h6 className="text-xs text-white/80">Время</h6>
-                      <p className="text-xs text-white/80">{time} минут</p>
-                    </div>
-                    <div>
-                      <h6 className="text-xs text-white/80">Категория</h6>
-                      <p className="text-xs text-white/80">{category}</p>
-                    </div>
+                  <div>
+                    <h6 className="text-xs text-white/80">Время</h6>
+                    <p className="text-xs text-white/80">{time} минут</p>
+                  </div>
+                  <div>
+                    <h6 className="text-xs text-white/80">Категория</h6>
+                    <p className="text-xs text-white/80">{category}</p>
                   </div>
                 </div>
-            <div className="p-6" onClick={handleClick}>
-              <MdToHtml mdSource={content} />
-            </div>
+              </div>
+              <div className="p-6" onClick={handleClick}>
+                <MdToHtml mdSource={content} />
+              </div>
             </div>
           </article>
           <DisqusComments postMetadata={postMetadata} />

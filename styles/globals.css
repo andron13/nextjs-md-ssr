@@ -53,12 +53,6 @@ a:hover {
   color: #2c5282;
 }
 
-article {
-  /* padding: 1rem; */
-  /* border: 1px solid #ddd; */
-  /* border-radius: 4px; */
-}
-
 .list-decimal {
   list-style-type: decimal;
 }
@@ -108,12 +102,6 @@ article {
   max-height: 340px;
 }
 
-.recipeImg {
-  border-radius: 20px;
-  height: 180px;
-  object-fit: cover;
-}
-
 @media (min-width: 420px) {
   .mySlide {
     max-height: 450px;
@@ -144,21 +132,26 @@ article {
 }
 
 .checkmark {
-  @apply bg-[url("/assets/icons/checkIcon.svg")] bg-center bg-no-repeat block w-8 h-8 
+  @apply block h-8 w-8 bg-[url("/assets/icons/checkIcon.svg")] bg-center bg-no-repeat;
+}
+
+#ingridients {
 }
 
 #directions img {
-  @apply block h-auto w-full mt-6 mx-auto sm:w-1/2
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  @apply mx-auto mb-6 mt-6 block h-auto w-full rounded-xl sm:w-1/2;
 }
 
 ul li {
-  @apply flex gap-x-2 items-center;
+  @apply flex items-center gap-x-2;
 }
 
 .active {
-  @apply border-b-active border-b-2 text-active;
+  @apply border-b-2 border-b-accent-600 text-accent-600 !important;
 }
 
-#ingridients_btn, #directions_btn {
+#ingridients_btn,
+#directions_btn {
   @apply -mb-[11.5px] w-1/2 pb-4 text-black/50;
 }
