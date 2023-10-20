@@ -100,12 +100,7 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
     initialState
   );
   const applyedFilters = useRef<IRecipe[]>([]);
-  const allRecipes = useRef<IRecipe[]>([]);
-  const { recipes } = useRecipes();
-
-  useEffect(() => {
-    if (allRecipes.current.length === 0) allRecipes.current = recipes;
-  }, [recipes]);
+  const { recipes, allRecipes } = useRecipes();
 
   const updateCooking = useCallback(
     (min: number, max: number) =>
@@ -152,7 +147,7 @@ function FiltersProvider({ children }: IFiltersProviderProps) {
   }, []);
 
   useEffect(() => {
-    const caloryFilter = filterRange(calories, allRecipes.current, 'calories');
+    const caloryFilter = filterRange(calories, allRecipes, 'calories');
     const cookingTimeFilter = filterRange(cooking, caloryFilter, 'time');
     const isVeganFilter = filterEssentials(isVegan, cookingTimeFilter, 'isVegan');
     const isSpicyFilter = filterEssentials(isSpicy, isVeganFilter, 'isSpicy');

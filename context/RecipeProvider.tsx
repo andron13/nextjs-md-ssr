@@ -4,6 +4,7 @@ import { resultObj } from '../types';
 
 enum RecipeActionTypes {
   RECIPES_UPDATED = 'recipes/recipesUpdated',
+  ALL_RECIPES_UPDATED = 'recipes/allRecipesUpdated',
 }
 
 interface IRecipeProviderProps {
@@ -19,24 +20,30 @@ interface IAction {
 
 type InitialState = Readonly<{
   recipes: IRecipe[];
+  allRecipes: IRecipe[];
 }>;
 
 interface IRecipeContextProvider extends InitialState {
   updateRecipes: (newRecipes: IRecipe[]) => void;
+  updateAllRecipes: (newRecipes: IRecipe[]) => void;
 }
 
 export type RecipeKeys = keyof IRecipe;
 
 const initialState: InitialState = {
   recipes: [] as IRecipe[],
+  allRecipes: [] as IRecipe[],
 } as const;
 
 const RecipeContext = createContext<IRecipeContextProvider>(initialState as IRecipeContextProvider);
 
-function reducer(_state: InitialState, action: IAction): InitialState {
+function reducer(state: InitialState, action: IAction): InitialState {
   switch (action.type) {
     case RecipeActionTypes.RECIPES_UPDATED:
-      return { recipes: action.payload };
+      return { ...state, recipes: action.payload };
+
+    case RecipeActionTypes.ALL_RECIPES_UPDATED:
+      return { ...state, allRecipes: action.payload };
 
     default:
       throw new Error('Unknown recipe action!');
@@ -44,7 +51,7 @@ function reducer(_state: InitialState, action: IAction): InitialState {
 }
 
 function RecipeProvider({ children }: IRecipeProviderProps) {
-  const [{ recipes }, dispatch] = useReducer(reducer, initialState);
+  const [{ recipes, allRecipes }, dispatch] = useReducer(reducer, initialState);
 
   const updateRecipes = useCallback(
     (newRecipes: IRecipe[]) =>
@@ -55,12 +62,23 @@ function RecipeProvider({ children }: IRecipeProviderProps) {
     []
   );
 
+  const updateAllRecipes = useCallback(
+    (newRecipes: IRecipe[]) =>
+      dispatch({
+        type: RecipeActionTypes.ALL_RECIPES_UPDATED,
+        payload: newRecipes,
+      }),
+    []
+  );
+
   return (
     <RecipeContext.Provider
       value={
         {
+          allRecipes,
           recipes,
           updateRecipes,
+          updateAllRecipes,
         } as IRecipeContextProvider
       }
     >

@@ -17,11 +17,12 @@ export async function getStaticProps() {
 }
 
 const Index = ({ allPostsData }) => {
-  const { updateRecipes } = useRecipes();
+  const { updateRecipes, updateAllRecipes } = useRecipes();
 
   useEffect(() => {
     updateRecipes(allPostsData);
-  }, [allPostsData, updateRecipes]);
+    updateAllRecipes(allPostsData);
+  }, [allPostsData, updateAllRecipes, updateRecipes]);
 
   return (
     <HomeLayout>

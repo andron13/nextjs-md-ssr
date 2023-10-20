@@ -27,7 +27,7 @@ isVegan: true
 </div>
 
 <div id="directions" className="hidden">
-1. <div>Смешать все ингредиенты в любом порядке.<img src="/assets/img/recipeStep.jpeg"/></div>
-2. <div>Столовой ложкой выкладываю порционно на сковороду.<img src="/assets/img/recipeStep.jpeg"/></div>
-3. <div> Обжариваю с каждой стороны по 8-10 минут.<img src="/assets/img/recipeStep.jpeg"/></div>
+1. <div>.<img src="/assets/img/recipeStep.jpeg"/></div>
+2. <div>.<img src="/assets/img/recipeStep.jpeg"/></div>
+3. <div> тестируем поиск 123.<img src="/assets/img/recipeStep.jpeg"/></div>
 </div>
