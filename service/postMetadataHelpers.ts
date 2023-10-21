@@ -28,7 +28,6 @@ function parseMetadata(
     calories: matterResult.data.calories || 0,
     isSpicy: matterResult.data.isSpicy || false,
     isVegan: matterResult.data.isVegan || false,
-    calories: matterResult.data.calories || 0,
   };
 }
 
