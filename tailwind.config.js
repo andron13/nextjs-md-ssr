@@ -3,11 +3,13 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+      transitionTimingFunction: {
+        bounce: 'cubic-bezier(.25,1.55,.65,.97)',
+      },
       fontFamily: {
         sans: ['Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
-        'accent-50': 'hsl(30, 89%, 96%)',
         'accent-50': 'hsl(30, 89%, 96%)',
         'accent-100': 'hsl(31, 95%, 92%)',
         'accent-200': 'hsl(28, 93%, 83%)',

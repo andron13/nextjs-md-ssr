@@ -9,6 +9,8 @@ time: 130
 weight: 23
 image: "/assets/img/syrniki.jpg"
 description: "Для тех, кто с утра перед работой любит хорошо покушать, посоветую быстрый способ приготовления домашних сырников"
+isSpicy: false
+isVegan: true
 slug: recipe
 ---
 
@@ -18,10 +20,6 @@ slug: recipe
 </div>
 
 <div id="ingridients" class="">
-* <span class="checkmark"></span> Творог
-* <span class="checkmark"></span> Яйца
-* <span class="checkmark"></span> Сахар
-* <span class="checkmark"></span> Мука
 * <span class="checkmark"></span> Творог
 * <span class="checkmark"></span> Яйца
 * <span class="checkmark"></span> Сахар

@@ -24,6 +24,8 @@ export type resultObj = {
   description: string;
   calories: number;
   time: number;
+  isSpicy: boolean;
+  isVegan: boolean;
 };
 
 export type postData = {

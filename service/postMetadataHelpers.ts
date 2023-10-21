@@ -22,10 +22,13 @@ function parseMetadata(
     ingredients: matterResult.data.ingredients || '',
     weight: matterResult.data.weight || 100,
     slug: matterResult.data.slug || path.basename(filepath).replace('.md', ''),
-    image: matterResult.data.image,
+    image: matterResult.data.image || '',
     description: matterResult.data.description,
-    time: matterResult.data.time,
-    calories: matterResult.data.calories,
+    time: matterResult.data.time || 0,
+    calories: matterResult.data.calories || 0,
+    isSpicy: matterResult.data.isSpicy || false,
+    isVegan: matterResult.data.isVegan || false,
+    calories: matterResult.data.calories || 0,
   };
 }
 
