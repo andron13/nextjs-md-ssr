@@ -5,7 +5,7 @@ date: 2023-01-08
 author: "andron13"
 category: Завтрак
 calories: 1000
-time: 130
+time: 630
 weight: 23
 image: "/assets/img/syrniki.jpg"
 description: "Для тех, кто с утра перед работой любит хорошо покушать, посоветую быстрый способ приготовления домашних сырников"
