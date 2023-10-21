@@ -8,11 +8,11 @@ type propsType = {
 };
 
 export default function RecipeCard(props: propsType) {
-  const { img, title, category, time, calories } = props.recipe;
+  const { image, title, category, time, calories } = props.recipe;
   return (
     <div className="cursor-pointer object-contain transition-all duration-300 hover:scale-[1.02] sm:w-[220px]">
       <div className="relative z-10">
-        <Image width="130" height="130" src={img} alt="" className="recipeImg" />
+        <Image width="130" height="130" src={image} alt="" className="recipeImg" />
         <div className="absolute bottom-[30px] left-[16px] flex gap-1 rounded-lg bg-primary-50 px-2 text-[10px] font-[500]">
           <Image src={cookingIcon} alt="" />
           {time} min
