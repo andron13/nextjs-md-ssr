@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 
 body {
-    font-family: 'Nunito', sans-serif;
     line-height: 1.6;
     color: #333;
 }
@@ -29,6 +26,11 @@ h3 {
     font-size: 1.75rem;
     margin-bottom: 0.75rem;
 }
+
+p {
+    margin-bottom: 1rem;
+}
+
 
 blockquote {
     margin: 1rem 0;
@@ -55,74 +57,12 @@ article {
     border-radius: 4px;
 }
 
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f7f7f7;
+}
+
 .list-decimal {
     list-style-type: decimal;
-}
-
-.swiper-slide {
-    width: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.myPrev, .myNext {
-    transition: all 0.3s;
-    border-radius: 50%;
-}
-
-.myPrev:hover, .myNext:hover {
-    background-color: #EFEFEF;
-}
-
-.myPrev:hover .sliderArrow, .myNext:hover .sliderArrow {
-    fill: hsl(17, 85%, 47%);
-}
-
-.myPrev.swiper-button-disabled .sliderArrow, .myNext.swiper-button-disabled .sliderArrow {
-    fill: #989898;
-}
-
-.swiper-pagination-bullet {
-    transition: all 0.3s;
-}
-.swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: #DD4C12;
-    transform: scale(1.2);
-}
-
-.myRecepBtn:hover .myRecepIcon {
-    fill: hsl(24, 90%, 61%);
-}
-
-.mySlide {
-    border-radius: 35px;
-    object-fit: cover;
-    max-height: 340px;
-}
-
-.recipeImg {
-    border-radius: 20px;
-    height: 180px;
-    object-fit: cover;
-}
-
-@media (min-width: 420px) {
-    .mySlide {
-        max-height: 450px;
-    }
-    .recipeImg {
-        height: 250px;
-    }
-}
-
-@media (min-width: 550px) {
-    .mySlide {
-        max-height: 625px;
-    }
-}
-
-@media (min-width: 640px) {
-    .recipeImg {
-        height: 180px;
-    }
 }
